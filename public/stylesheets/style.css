@@ -86,3 +86,20 @@ a {
   margin: 10px
 }
 
+.logout{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.create-new-note {
+  display: flex;
+  align-items: space-around;
+}
+

@@ -6,7 +6,7 @@ const userSchema = new Schema({
   password: { type: String },
   email: { type: String },
   googleID: { type: String },
-  imageURL: { type: String, default: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrFZyRsNaziLT66g7YLrNbuaiCstEDLu9sLwK-0qQ8N1LkS_QUw' }
+  imageURL: { type: String, default: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrFZyRsNaziLT66g7YLrNbuaiCstEDLu9sLwK-0qQ8N1LkS_QUw' },
 }, {
   timestamps: {
     createdAt: 'created_at',

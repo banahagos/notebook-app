@@ -1,3 +1,11 @@
+<div class="logout"><a href="/logout"><button class="btn btn-info">Logout</button></a></div>
 <h1>Dashboard</h1>
-<p>Welcome {{user.username}}</p>
-<a href="/logout">Logout</a>
+<h6>Welcome {{user.username}}</h6>
+<br>
+<br>
+<div class="create-new-note"><a href="/note/new"><button class="btn btn-info">Create new note</button></a></div>
+<div class="note-container">
+  {{#each notesList}}
+  {{> notePartial this}}
+  {{/each}}
+</div>
