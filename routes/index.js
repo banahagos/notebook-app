@@ -24,6 +24,7 @@ router.get('/', (req, res, next) => {
 router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   // Find all notes from the current user
   Note.find({ owner: req.user })
+    .populate('tags')
     .then(notesList => {
       res.render('dashboard', { user: req.user, notesList: notesList })
     })

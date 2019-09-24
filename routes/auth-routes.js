@@ -33,11 +33,23 @@ router.post('/signup', (req, res, next) => {
     return;
   }
 
-  // Validation: check if the email already exists
-  User.findOne({ email })
-    .then(user => {
-      if (user !== null) {
+
+
+  // Validation: check if the email & username already exist
+
+  const checkEmail = User.findOne({email})
+  const checkUsername = User.findOne({username})
+
+
+  Promise.all([checkEmail, checkUsername])
+    .then(userList => {
+      console.log(userList)
+      if (userList[0] !== null) {
         res.render('auth/signup', { message: "The email already exists", email, username, password, password2 })
+        return
+      }
+      else if(userList[1] !== null){
+        res.render('auth/signup', { message: "The username already exists", email, username, password, password2 })
         return
       }
 

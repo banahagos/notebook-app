@@ -5,6 +5,7 @@ const noteSchema = new Schema({
   title: { type: String },
   text: { type: String },
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
+  tags: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
 }, {
   timestamps: {
     createdAt: 'created_at',

@@ -2,9 +2,17 @@
   <div class="card-body">
     <h5 class="card-title">{{title}}</h5>
     <p class="card-text">{{text}}</p>
-    <a href="/note/{{_id}}/edit" class="btn btn-info">Edit</a>
-    <form action="note/{{_id}}/delete" method="POST">
-      <button type="submit" class="btn btn-outline-secondary">Delete</button>
-    </form>
+    <p>Tags:</p>
+    {{#each tags}}
+    <div class="chip">
+      {{this.name}}
+    </div>
+    {{/each}}
+    <div class="card-buttons">
+      <a href="/note/{{_id}}/edit" class="btn btn-info">Edit</a>
+      <form action="note/{{_id}}/delete" method="POST">
+        <button type="submit" class="btn btn-outline-secondary">Delete</button>
+      </form>
+    </div>
   </div>
 </div>

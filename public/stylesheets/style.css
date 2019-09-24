@@ -103,3 +103,7 @@ a {
   align-items: space-around;
 }
 
+.card-buttons{
+  display:flex;
+  justify-content:space-around
+}

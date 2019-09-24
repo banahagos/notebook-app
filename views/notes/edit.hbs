@@ -7,10 +7,24 @@
     <label for="">Note</label>
     <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3">{{note.text}}</textarea>
   </div>
+
+
+  <div id="input-field"></div>
+
+  <!-- Chips  -->
+  <label for="">Tags</label>
+  <div name="tags" id="chips" class="chips">
+  </div>
+
   <div class="form-button">
-    <button type="submit" class="btn btn-info">Update</button>
+    <button type="submit" class="btn btn-info submit-update">Update</button>
   </div>
   <form action="note/{{note._id}}/delete" method="POST">
     <button type="submit" class="btn btn-outline-secondary">Delete</button>
   </form>
 </form>
+
+{{#each note.tags}}
+
+<p class="chip-prefill">{{name}}</p>
+{{/each}}
