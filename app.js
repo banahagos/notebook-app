@@ -7,7 +7,7 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const ensureLogin = require('connect-ensure-login')
 const hbs = require('hbs');
-
+require('dotenv').config()
 
 // Mongoose configuration
 mongoose
