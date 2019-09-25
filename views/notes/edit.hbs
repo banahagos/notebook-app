@@ -1,4 +1,44 @@
-<form action="/note/{{note._id}}" method="POST">
+<div class="row">
+  <h5>Edit your note</h5>
+  <form action="/note/{{note._id}}" method="POST" class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="title" value="{{note.title}}" type="text" class="validate">
+        <label for="title">Title</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea name="text" id="textarea1" class="materialize-textarea">{{note.text}}</textarea>
+        <label for="text">Text</label>
+      </div>
+    </div>
+    <div id="input-field"></div>
+    <!-- Chips  -->
+    <label for="">Tags</label>
+    <div name="tags" id="chips" class="chips">
+    </div>
+    <button type="submit" class="btn btn-info submit-update">Update</button>
+    <form action="note/{{note._id}}/delete" method="POST">
+      <button type="submit" class="btn btn-outline-secondary">Delete</button>
+    </form>
+  </form>
+</div>
+{{#if note.imgPath}}
+ <img class="responsive-img" src="{{note.imgPath}}">
+{{/if}}
+
+
+{{#each note.tags}}
+
+<p class="chip-prefill">{{name}}</p>
+{{/each}}
+
+
+
+
+
+{{!-- <form action="/note/{{note._id}}" method="POST">
   <div class="form-group">
     <label for="">Title</label>
     <input type="text" name="title" value="{{note.title}}" class="form-control" id="exampleFormControlInput1">
@@ -27,4 +67,4 @@
 {{#each note.tags}}
 
 <p class="chip-prefill">{{name}}</p>
-{{/each}}
+{{/each}} --}}

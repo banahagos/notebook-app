@@ -6,6 +6,8 @@ const noteSchema = new Schema({
   text: { type: String },
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
   tags: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
+  imgName: { type: String },
+  imgPath: { type: String },
 }, {
   timestamps: {
     createdAt: 'created_at',

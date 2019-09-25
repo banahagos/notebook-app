@@ -2,12 +2,16 @@
   <div class="card-body">
     <h5 class="card-title">{{title}}</h5>
     <p class="card-text">{{text}}</p>
-    <p>Tags:</p>
+  
+  {{#if tags}}
     {{#each tags}}
     <div class="chip">
       {{this.name}}
+
     </div>
+  
     {{/each}}
+    {{/if}}
     <div class="card-buttons">
       <a href="/note/{{_id}}/edit" class="btn btn-info">Edit</a>
       <form action="note/{{_id}}/delete" method="POST">

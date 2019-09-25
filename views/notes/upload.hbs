@@ -1,0 +1,31 @@
+<div class="row">
+  <h5>Upload & convert a handwritten note</h5>
+  <form action="/note/upload" method="POST" enctype="multipart/form-data" class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="title" type="text" class="validate">
+        <label for="title">Title</label>
+      </div>
+    </div>
+   
+    <div id="input-field"></div>
+    <!-- Chips  -->
+    <label for="">Tags</label>
+    <div name="tags" id="chips" class="chips">
+    </div>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" name="image">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+    <button type="submit" class="btn submit-upload">Submit</button>
+  </form>
+</div>
+
+
+
+

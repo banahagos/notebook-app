@@ -6,15 +6,12 @@ const Note = require('../models/note')
 
 // GET home page - unlogged 
 router.get('/', (req, res, next) => {
-  // if the user is logged, show dashboard
   if (req.user) {
-    // Find all notes from the current user
     Note.find({ owner: req.user })
       .then(notesList => {
         res.render('dashboard', { user: req.user, notesList: notesList })
       })
   }
-  // if user is not logged in, show home page for unlogged users
   else {
     res.render('index')
   }

@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 
-
 // Create an hidden input field 
 let parentNode = document.getElementById("input-field")
 let hiddenInput = document.createElement('input')
@@ -36,12 +35,21 @@ const updateNoteButton = document.querySelector(".submit-update")
 if (updateNoteButton) {
   updateNoteButton.addEventListener("mouseover", function (e) {
     hiddenInput.value = chipData.map(c => c.tag)
+    
   })
 }
 
 const createNoteButton = document.querySelector(".submit-new-note")
 if (createNoteButton) {
   createNoteButton.addEventListener("mouseover", function (e) {
+    hiddenInput.value = chipData.map(c => c.tag)
+  })
+}
+
+
+const submitUploadButton = document.querySelector(".submit-upload")
+if (submitUploadButton) {
+  submitUploadButton.addEventListener("mouseover", function (e) {
     hiddenInput.value = chipData.map(c => c.tag)
   })
 }
