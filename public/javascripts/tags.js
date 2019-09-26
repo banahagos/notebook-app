@@ -1,5 +1,6 @@
 
 let chipData
+/* Start - Materialize documentation  */
 
 // Initialize the chip/tag
 document.addEventListener('DOMContentLoaded', function () {
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   chipData = chip.chipsData
   console.log(chipData) // check the data that's returned
 
-  // Prefill tags (iterate through handlebar, add to chips/tags array, hide handlebar)
+  // Prefill tags (iterate through handlebar, add values to chips/tags array, hide input field)
   const prefillTags = [...document.getElementsByClassName('chip-prefill')]
 
   prefillTags.forEach(element => {
@@ -21,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 })
 
+/* End - Materialize documentation */
+
+
 // Create an hidden input field 
 let parentNode = document.getElementById("input-field")
 let hiddenInput = document.createElement('input')
@@ -30,12 +34,12 @@ hiddenInput.setAttribute('id', 'chipData')
 parentNode.appendChild(hiddenInput)
 
 
-// Add tags to the hidden input field
+// Add all entered tags to the hidden input field
 const updateNoteButton = document.querySelector(".submit-update")
 if (updateNoteButton) {
   updateNoteButton.addEventListener("mouseover", function (e) {
     hiddenInput.value = chipData.map(c => c.tag)
-    
+
   })
 }
 
@@ -53,7 +57,6 @@ if (submitUploadButton) {
     hiddenInput.value = chipData.map(c => c.tag)
   })
 }
-
 
 
 

@@ -7,7 +7,9 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const ensureLogin = require('connect-ensure-login')
 const hbs = require('hbs');
+const bodyParser = require('body-parser')
 require('dotenv').config()
+
 
 // Mongoose configuration
 mongoose
@@ -58,7 +60,8 @@ app.set('view engine', 'hbs')
 
 hbs.registerPartials(__dirname + '/views/partials')
 
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -68,13 +71,14 @@ app.use(express.static(path.join(__dirname, 'public')))
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const authRouter = require('./routes/auth-routes')
-const noteRouter = require('./routes/notes')
+const notesRouter = require('./routes/notes')
+const tagsRouter = require('./routes/tags')
 
 app.use('/', indexRouter)
 app.use('/', authRouter)
 app.use('/users', usersRouter)
-app.use('/note', ensureLogin.ensureLoggedIn(), noteRouter)
-
+app.use('/notes', ensureLogin.ensureLoggedIn(), notesRouter)
+app.use('/tags', ensureLogin.ensureLoggedIn(), tagsRouter)
 
 
 // catch 404 and forward to error handler
@@ -92,5 +96,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500)
   res.render('error')
 });
+
+
 
 module.exports = app

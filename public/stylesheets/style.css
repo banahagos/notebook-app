@@ -108,3 +108,9 @@ a {
   justify-content:space-around
 }
 
+.search-home{
+  display: flex;
+  justify-content: flex-end;
+}
+
+

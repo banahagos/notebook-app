@@ -1,0 +1,10 @@
+
+<div class="note-container">
+  {{#if tagSearchResult}}
+  {{#each tagSearchResult}}
+  {{> notePartial this}}
+  {{/each}}
+  {{else}}
+  <div class="error-message">Note note with this tag found</div>
+  {{/if}}
+</div>

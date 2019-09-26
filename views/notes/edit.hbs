@@ -1,6 +1,6 @@
 <div class="row">
   <h5>Edit your note</h5>
-  <form action="/note/{{note._id}}" method="POST" class="col s12">
+  <form action="/notes/{{note._id}}" method="POST" class="col s12">
     <div class="row">
       <div class="input-field col s12">
         <input name="title" value="{{note.title}}" type="text" class="validate">
@@ -19,9 +19,6 @@
     <div name="tags" id="chips" class="chips">
     </div>
     <button type="submit" class="btn btn-info submit-update">Update</button>
-    <form action="note/{{note._id}}/delete" method="POST">
-      <button type="submit" class="btn btn-outline-secondary">Delete</button>
-    </form>
   </form>
 </div>
 {{#if note.imgPath}}
@@ -36,35 +33,3 @@
 
 
 
-
-
-{{!-- <form action="/note/{{note._id}}" method="POST">
-  <div class="form-group">
-    <label for="">Title</label>
-    <input type="text" name="title" value="{{note.title}}" class="form-control" id="exampleFormControlInput1">
-  </div>
-  <div class="form-group">
-    <label for="">Note</label>
-    <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3">{{note.text}}</textarea>
-  </div>
-
-
-  <div id="input-field"></div>
-
-  <!-- Chips  -->
-  <label for="">Tags</label>
-  <div name="tags" id="chips" class="chips">
-  </div>
-
-  <div class="form-button">
-    <button type="submit" class="btn btn-info submit-update">Update</button>
-  </div>
-  <form action="note/{{note._id}}/delete" method="POST">
-    <button type="submit" class="btn btn-outline-secondary">Delete</button>
-  </form>
-</form>
-
-{{#each note.tags}}
-
-<p class="chip-prefill">{{name}}</p>
-{{/each}} --}}

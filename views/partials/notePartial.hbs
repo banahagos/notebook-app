@@ -5,16 +5,17 @@
   
   {{#if tags}}
     {{#each tags}}
+    
     <div class="chip">
-      {{this.name}}
+    {{this.name}}
 
     </div>
   
     {{/each}}
     {{/if}}
     <div class="card-buttons">
-      <a href="/note/{{_id}}/edit" class="btn btn-info">Edit</a>
-      <form action="note/{{_id}}/delete" method="POST">
+      <a href="/notes/{{_id}}/edit" class="btn btn-info">Edit</a>
+      <form action="notes/{{_id}}/delete" method="POST">
         <button type="submit" class="btn btn-outline-secondary">Delete</button>
       </form>
     </div>
