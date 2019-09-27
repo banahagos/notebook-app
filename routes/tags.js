@@ -7,14 +7,18 @@ const Tag = require('../models/tag')
 
 router.get('/', async (req, res, next) => {
   try {
-    let tag = await Tag.findOne({ name: req.query.tag})
-    let tagSearchResult = await Note.find({ tags: tag._id }).populate('tags')
+    let regex = new RegExp(req.query.tag, 'i');
+    let tag = await Tag.findOne({ name: regex })
+    let tagSearchResult = await Note.find({ tags: tag._id })
+    .populate('tags')
+    .populate('owner')
+    .exec();
     console.log(tagSearchResult)
-    res.render('tags/searchResult', { tagSearchResult })
+    res.render('tags/searchResult', { user: req.user, tagSearchResult: tagSearchResult })
   }
   catch (err) {
     console.log('something went wrong with searching a tag')
-    res.render('tags/searchResult')
+    res.render('tags/searchResult', { message: "No note found with this tag" })
   }
 })
 

@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text">{{text}}</p>
+
+    {{#if tags}}
+    {{#each tags}}
+
+    <div class="chip">
+      {{this.name}}
+    </div>
+    {{/each}}
+    {{/if}}
+    <a href="/notes/{{_id}}" class="waves-effect waves-light btn">More</a>
+    <p class="card-text"><a href="/users/{{note.owner.username}}">{{owner.username}}</a></p>
+  </div>
+</div>

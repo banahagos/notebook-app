@@ -1,0 +1,29 @@
+<table>
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <td>{{note.title}}</td>
+    </tr>
+    <tr>
+      <th>Text</th>
+      <td>{{note.text}}</td>
+    </tr>
+    <tr>
+      <th>Tags</th>
+      <td>{{#if note.tags}}
+    {{#each note.tags}}
+    
+    <div class="chip">
+    {{this.name}}
+
+    </div>
+  
+    {{/each}}
+    {{/if}}</td>
+    </tr>
+  </tbody>
+</table>
+<p>published by: <a href="/users/{{note.owner.username}}">{{note.owner.username}}</a></p>
+{{#if owner}}
+<a href="/notes/{{note._id}}/edit" class="btn btn-info">Edit</a>
+{{/if}}
