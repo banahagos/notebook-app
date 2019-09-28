@@ -69,7 +69,7 @@ router.post('/upload', uploadCloud.single('image'), async (req, res, next) => {
     res.redirect(`/notes/${addedNote._id}/edit`)
   }
   catch (err) {
-    console.log('something went wrong with text detection')
+    console.log('something went wrong with text detection', err)
     res.render('notes/upload', { message: "Something went wrong. Please try another image which includes text." })
   }
 

@@ -13,7 +13,7 @@ require('dotenv').config()
 
 // Mongoose configuration
 mongoose
-  .connect('mongodb://localhost/notebook-app', { useUnifiedTopology: true, useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

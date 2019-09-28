@@ -8,6 +8,8 @@ const Note = require('../models/note')
 router.get('/', (req, res, next) => {
   if (req.user) {
     Note.find({ owner: req.user })
+      .populate('tags')
+      .sort([['updated_at', -1]])
       .then(notesList => {
         res.render('dashboard', { user: req.user, notesList: notesList })
       })
@@ -22,7 +24,9 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   // Find all notes from the current user
   Note.find({ owner: req.user })
     .populate('tags')
+    .sort([['updated_at', -1]])
     .then(notesList => {
+      console.log(notesList)
       res.render('dashboard', { user: req.user, notesList: notesList })
     })
 })
