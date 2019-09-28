@@ -8,8 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
   chip = M.Chips.init(chipEl);
 
   // Get an array of chip/tag objects
-  chipData = chip.chipsData
-  console.log(chipData) // check the data that's returned
+  if (chip) {
+    chipData = chip.chipsData
+    console.log(chipData) // check the data that's returned
+  }
+
 
   // Prefill tags (iterate through handlebar, add values to chips/tags array, hide input field)
   const prefillTags = [...document.getElementsByClassName('chip-prefill')]
@@ -25,16 +28,19 @@ document.addEventListener('DOMContentLoaded', function () {
 /* End - Materialize documentation */
 
 
-// Create an hidden input field 
+// Create an hidden input field (Create & Edit page)
 let parentNode = document.getElementById("input-field")
 let hiddenInput = document.createElement('input')
 hiddenInput.setAttribute('type', 'hidden')
 hiddenInput.setAttribute('name', 'tags')
 hiddenInput.setAttribute('id', 'chipData')
-parentNode.appendChild(hiddenInput)
+if (parentNode) {
+  parentNode.appendChild(hiddenInput)
+}
 
 
-// Add all entered tags to the hidden input field
+
+// Add all entered tags to the hidden input field (Create & Edit page)
 const updateNoteButton = document.querySelector(".submit-update")
 if (updateNoteButton) {
   updateNoteButton.addEventListener("mouseover", function (e) {
@@ -57,6 +63,19 @@ if (submitUploadButton) {
     hiddenInput.value = chipData.map(c => c.tag)
   })
 }
+
+// Click on tags to see search result for this tag
+const clickTag = [...document.querySelectorAll('.click-tag')]
+clickTag.forEach(tag => {
+  tag.addEventListener("click", function (e) {
+    const searchField = document.querySelector('.search')
+    searchField.style.visibility = "hidden"
+    searchField.value = tag.innerText
+    document.querySelector(".search-home").submit();
+    searchField.value = ""
+  })
+})
+
 
 
 
