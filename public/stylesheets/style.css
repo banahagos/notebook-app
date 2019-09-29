@@ -117,3 +117,7 @@ a {
 .search-term{
   font-weight: bold;
 }
+
+select {
+  display: inline
+}

@@ -2,15 +2,15 @@
   <div class="card-body">
     <h5 class="card-title">{{title}}</h5>
     <p class="card-text">{{text}}</p>
-  
-  {{#if tags}}
+
+    {{#if tags}}
     {{#each tags}}
-    
+
     <div class="chip click-tag">
-    {{this.name}}
+      {{this.name}}
 
     </div>
-  
+
     {{/each}}
     {{/if}}
     <div class="card-buttons">

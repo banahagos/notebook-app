@@ -94,6 +94,25 @@ router.post('/:id/delete', (req, res, next) => {
     .catch(err => next(err))
 })
 
+// GET show script for handwriting
+router.get('/script', (req, res, next) => {
+  res.render('notes/script')
+})
+
+// POST create a note from the handwriting script
+router.post('/script', async (req, res, next) => {
+  try {
+    let newNote = new Note({ text: req.body.recoResult, owner: req.user })
+    let addedNote = await newNote.save()
+    res.redirect(`/notes/${addedNote._id}/edit`)
+  }
+  catch (err) {
+    console.log('something went wrong with saving the script', err)
+    res.render('notes/script')
+  }
+})
+
+
 // GET show a form to edit a note
 router.get('/:id/edit', (req, res, next) => {
   Note.findById({ _id: req.params.id })
@@ -167,6 +186,8 @@ router.get('/:id', async (req, res, next) => {
     console.log('something went wrong with showing the details page')
   }
 })
+
+
 
 module.exports = router;
 

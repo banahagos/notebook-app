@@ -1,0 +1,25 @@
+<div id="result"></div>
+<div>
+    <form action="/notes/script" method="POST" id="script">
+        <input id="result-input" type="text" name="recoResult">
+        <button id="save-button-handwriting" type="submit">Save</button>
+    </form>
+    <nav>
+        <div class="button-div">
+            <button id="clear" class="nav-btn btn-fab-mini btn-lightBlue" disabled>
+                <img src="/images/script_assets/img/clear.svg">
+            </button>
+            <button id="undo" class="nav-btn btn-fab-mini btn-lightBlue" disabled>
+                <img src="/images/script_assets/img/undo.svg">
+            </button>
+            <button id="redo" class="nav-btn btn-fab-mini btn-lightBlue" disabled>
+                <img src="/images/script_assets/img/redo.svg">
+            </button>
+        </div>
+        <select id="language">
+            <option value="en_US" selected>English (United States)</option>
+            <option value="de_DE">Deutsch</option>
+        </select>
+    </nav>
+    <div id="editor" touch-action="none"></div>
+</div>
