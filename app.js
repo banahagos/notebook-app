@@ -76,7 +76,7 @@ const tagsRouter = require('./routes/tags')
 
 app.use('/', indexRouter)
 app.use('/', authRouter)
-app.use('/users', usersRouter)
+app.use('/users', ensureLogin.ensureLoggedIn(), usersRouter)
 app.use('/notes', ensureLogin.ensureLoggedIn(), notesRouter)
 app.use('/tags', ensureLogin.ensureLoggedIn(), tagsRouter)
 

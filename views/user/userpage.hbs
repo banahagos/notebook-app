@@ -12,14 +12,30 @@
   </form>
 </div>
 
-{{#if tagSearchResult}}
-<h5>Search results for <span class="search-term">{{searchTerm}}</span></h5>
-{{/if}}
-<div class="note-container">
-  {{#each tagSearchResult}}
-  {{> searchPartial this}}
-</div>
-{{/each}}
+
+
+
 {{#if message}}
-<div class="error-message">{{message}}</div>
+<h1>{{message}}</h1> 
+{{else}}
+<div class="note-container">
+  {{#each notesList}}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{title}}</h5>
+      <p class="card-text">{{text}}</p>
+
+      {{#if tags}}
+      {{#each tags}}
+
+      <div class="chip click-tag">
+        {{this.name}}
+      </div>
+      {{/each}}
+      {{/if}}
+      <a href="/notes/{{_id}}" class="waves-effect waves-light btn">More</a>
+    </div>
+  </div>
+  {{/each}}
+</div>
 {{/if}}

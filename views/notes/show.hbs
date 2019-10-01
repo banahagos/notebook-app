@@ -1,3 +1,19 @@
+<div class="row">
+  <form action="/tags" method="GET" class="col s12 search-home">
+    <div class="row">
+      <div class="inputField col s12">
+        <input class="search" placeholder="Search for a tag" name="tag" type="text" class="validate">
+        <label for="Search">Search</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit">Search
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
+
+
+
 <table>
   <tbody>
     <tr>
@@ -13,7 +29,7 @@
       <td>{{#if note.tags}}
         {{#each note.tags}}
 
-        <div class="chip">
+        <div class="chip click-tag">
           {{this.name}}
 
         </div>
@@ -23,7 +39,9 @@
     </tr>
   </tbody>
 </table>
+<form action="/users/{{note.owner.username}}">
 <p>published by: <a href="/users/{{note.owner.username}}">{{note.owner.username}}</a></p>
+</form>
 {{#if owner}}
 <a href="/notes/{{note._id}}/edit" class="btn btn-info">Edit</a>
 {{/if}}

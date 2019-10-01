@@ -2,13 +2,14 @@ const express = require('express')
 const router = express.Router()
 const Note = require('../models/note')
 const Tag = require('../models/tag')
-const uploadCloud = require('../config/cloudinary.js');
+const uploadCloud = require('../config/cloudinary.js')
 const vision = require('@google-cloud/vision')
+
 
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
-  keyFilename: 'APIKey.json'
+  keyFilename: 'APIKEY.json'
 });
 
 // GET dashboard
@@ -26,7 +27,7 @@ router.post('/', async (req, res, next) => {
   try {
     const { title, text, tags } = req.body
     let arrayTags = tags.split(",")
-    let newNote = new Note({ title, text, owner: req.user })
+    let newNote = new Note({ title, text, owner: req.user})
     let addedNote = await newNote.save()
     if (tags !== "") {
       arrayTags.map(async tag => {
@@ -48,7 +49,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-// GET show a form to Upload handwritten note
+// GET show a form to upload handwritten note
 router.get('/upload', (req, res, next) => {
   res.render('notes/upload')
 })
@@ -61,10 +62,10 @@ router.post('/upload', uploadCloud.single('image'), async (req, res, next) => {
 
   // text detection
   try {
-    const [result] = await client.documentTextDetection(imgPath)
-    const fullTextAnnotation = result.fullTextAnnotation
+    // const [result] = await client.documentTextDetection(imgPath)
+    // const fullTextAnnotation = result.fullTextAnnotation
 
-    let newNote = new Note({ title: req.body.title, text: fullTextAnnotation.text, owner: req.user, imgPath, imgName })
+    let newNote = new Note({ title: req.body.title, text: 'hello', owner: req.user, imgPath, imgName })
     let addedNote = await newNote.save()
     res.redirect(`/notes/${addedNote._id}/edit`)
   }
@@ -179,7 +180,7 @@ router.get('/:id', async (req, res, next) => {
       .exec();
 
     let owner = note.owner.equals(req.user._id)
-
+    
     res.render('notes/show', { note: note, user: req.user, owner })
   }
   catch (err) {

@@ -14,10 +14,10 @@ editorElement.addEventListener('exported', function (evt) {
   const exports = evt.detail.exports;
   if (exports && exports['text/plain']) {
     clearElement.disabled = false;
-    handwritingResultInput.value = exports['text/plain'];
+    handwritingResultInput.innerText = exports['text/plain'];
   } else {
     clearElement.disabled = true;
-    handwritingResultInput.value = ""
+    handwritingResultInput.innerText = ""
   }
 });
 editorElement.addEventListener('loaded', function (evt) {
@@ -64,8 +64,8 @@ MyScript.register(editorElement, {
     apiVersion: 'V4',
     server: {
       scheme: 'https',
-      applicationKey: '', // YOUR API KEY
-      hmacKey: '', // YOUR HMACKEY
+      applicationKey: ,// YOUR API KEY
+      hmacKey: // YOUR HMACKEY
     },
     v4: {
       text: {

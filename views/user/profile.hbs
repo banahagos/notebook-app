@@ -1,0 +1,40 @@
+
+<h5>Profile</h5>
+<div class="row">
+  <form action="/users/profile" method="POST" enctype="multipart/form-data" class="col s12">
+    <div class="row">
+      <div class="inputField col s6">
+        <input name="username" id="username" type="text" class="validate" value="{{user.username}}">
+        <label for="username">Username</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="inputField col s6">
+        <input name="email" id="email" type="email" class="validate" value="{{user.email}}">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    <p>
+      <label>
+        <input type="checkbox" name="public" {{#if user.public}} checked {{/if}} />
+        <span>Public</span>
+      </label>
+    </p>
+    <p>
+      <div class="file-field inputField col s6">
+        <div class="btn">
+          <span>Profile image</span>
+          <input type="file" name="image">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="row col s12">
+        <button class="waves-effect waves-light btn" type="submit">Update</button>
+      </div>
+  </form>
+</div>
+{{#if message}}
+  <div class="error-message">{{message}}</div>
+  {{/if}}

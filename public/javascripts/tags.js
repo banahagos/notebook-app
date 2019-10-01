@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Create an hidden input field (Create & Edit page)
-let parentNode = document.getElementById("input-field")
+let parentNode = document.getElementById("inputField")
 let hiddenInput = document.createElement('input')
 hiddenInput.setAttribute('type', 'hidden')
 hiddenInput.setAttribute('name', 'tags')
