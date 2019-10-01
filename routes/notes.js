@@ -5,11 +5,15 @@ const Tag = require('../models/tag')
 const uploadCloud = require('../config/cloudinary.js')
 const vision = require('@google-cloud/vision')
 
-
-
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
-  keyFilename: 'APIKEY.json'
+  
+  projectId: process.env.GOOGLE_PROJECT_ID,
+  credentials: {
+    client_email: process.env.GOOGLE_CLIENT_EMAIL,
+    private_key: `${process.env.GOOGLE_PRIVATE_KEY.split("\\n").join("\n")}`
+  }
+  //keyFilename: 'APIKEY.json'
 });
 
 // GET dashboard
@@ -62,10 +66,10 @@ router.post('/upload', uploadCloud.single('image'), async (req, res, next) => {
 
   // text detection
   try {
-    // const [result] = await client.documentTextDetection(imgPath)
-    // const fullTextAnnotation = result.fullTextAnnotation
+    const [result] = await client.documentTextDetection(imgPath)
+    const fullTextAnnotation = result.fullTextAnnotation
 
-    let newNote = new Note({ title: req.body.title, text: 'hello', owner: req.user, imgPath, imgName })
+    let newNote = new Note({ title: req.body.title, text: fullTextAnnotation.text, owner: req.user, imgPath, imgName })
     let addedNote = await newNote.save()
     res.redirect(`/notes/${addedNote._id}/edit`)
   }

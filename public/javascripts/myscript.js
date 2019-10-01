@@ -64,8 +64,9 @@ MyScript.register(editorElement, {
     apiVersion: 'V4',
     server: {
       scheme: 'https',
-      applicationKey: ,// YOUR API KEY
-      hmacKey: // YOUR HMACKEY
+      applicationKey: '515131ab-35fa-411c-bb4d-3917e00faf60', 
+      hmacKey: '54b2ca8a-6752-469d-87dd-553bb450e9ad', 
+
     },
     v4: {
       text: {
