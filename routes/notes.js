@@ -7,7 +7,7 @@ const vision = require('@google-cloud/vision')
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
-  
+
   projectId: process.env.GOOGLE_PROJECT_ID,
   credentials: {
     client_email: process.env.GOOGLE_CLIENT_EMAIL,
@@ -31,7 +31,7 @@ router.post('/', async (req, res, next) => {
   try {
     const { title, text, tags } = req.body
     let arrayTags = tags.split(",")
-    let newNote = new Note({ title, text, owner: req.user})
+    let newNote = new Note({ title, text, owner: req.user })
     let addedNote = await newNote.save()
     if (tags !== "") {
       arrayTags.map(async tag => {
@@ -60,7 +60,9 @@ router.get('/upload', (req, res, next) => {
 
 // POST upload handwritten note + text dectection
 router.post('/upload', uploadCloud.single('image'), async (req, res, next) => {
-
+  if(!req.file){
+    res.render('notes/upload', { message: "Something went wrong. Please upload an image." })
+  }
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
 
@@ -75,7 +77,7 @@ router.post('/upload', uploadCloud.single('image'), async (req, res, next) => {
   }
   catch (err) {
     console.log('something went wrong with text detection', err)
-    res.render('notes/upload', { message: "Something went wrong. Please try another image which includes text." })
+    res.render('notes/upload', { message: "Something went wrong. Please try another image." })
   }
 
 })
@@ -184,7 +186,7 @@ router.get('/:id', async (req, res, next) => {
       .exec();
 
     let owner = note.owner.equals(req.user._id)
-    
+
     res.render('notes/show', { note: note, user: req.user, owner })
   }
   catch (err) {

@@ -36,7 +36,6 @@ router.post('/signup', (req, res, next) => {
 
 
   // Validation: check if the email & username already exist
-
   const checkEmail = User.findOne({ email })
   const checkUsername = User.findOne({ username })
 

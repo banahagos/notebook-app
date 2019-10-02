@@ -9,14 +9,22 @@ router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
+
 // GET profile page
 router.get('/profile', async (req, res, next) => {
   let user = await User.findOne({ _id: req.user._id })
   res.render('user/profile', { user: user })
 })
 
+router.post('/profile/:id/delete', async (req, res, next) => {
+  await Note.deleteMany({owner: req.user._id})
+  await User.deleteOne({_id: req.user._id})
+  res.redirect('/')
+})
+
+
 // POST update profile
-router.post('/profile', uploadCloud.single('image'), async (req, res, next) => {
+router.post('/profile/edit', uploadCloud.single('image'), async (req, res, next) => {
   const { username, email } = req.body
   let imgPath = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrFZyRsNaziLT66g7YLrNbuaiCstEDLu9sLwK-0qQ8N1LkS_QUw'
   if (req.file) {

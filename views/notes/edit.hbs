@@ -18,12 +18,18 @@
     <label for="">Tags</label>
     <div name="tags" id="chips" class="chips">
     </div>
+
     <button type="submit" class="btn btn-info submit-update">Update</button>
   </form>
 </div>
+
+
 {{#if note.imgPath}}
-<img class="responsive-img" src="{{note.imgPath}}">
+  <img class="responsive-img" src="{{note.imgPath}}">
 {{/if}}
+
+
+
 
 
 {{#each note.tags}}

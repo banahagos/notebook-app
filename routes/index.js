@@ -26,8 +26,7 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     .populate('tags')
     .sort([['updated_at', -1]])
     .then(notesList => {
-      console.log(notesList)
-      res.render('dashboard', { user: req.user, notesList: notesList })
+      res.render('dashboard', { user: req.user, notesList: notesList})
     })
 })
 
