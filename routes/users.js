@@ -24,8 +24,12 @@ router.post('/profile/:id/delete', async (req, res, next) => {
 
 
 // POST update profile
-router.post('/profile/edit', uploadCloud.single('image'), async (req, res, next) => {
-  const { username, email } = req.body
+router.post('/profile', uploadCloud.single('image'), async (req, res, next) => {
+  let { username, email } = req.body
+
+  username = username.toLowerCase()
+  email = email.toLowerCase()
+
   let imgPath = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrFZyRsNaziLT66g7YLrNbuaiCstEDLu9sLwK-0qQ8N1LkS_QUw'
   if (req.file) {
     imgPath = req.file.url
@@ -69,6 +73,7 @@ router.post('/profile/edit', uploadCloud.single('image'), async (req, res, next)
 // GET userpage 
 router.get('/:username', async (req, res, next) => {
   try {
+    req.params.username.toLocaleLowerCase()
     let user = await User.findOne({ username: req.params.username })
     if (user.public) {
       let notesList = await Note.find({ owner: user._id })

@@ -19,7 +19,10 @@ router.get('/login', (req, res, next) => {
 
 // POST signup
 router.post('/signup', (req, res, next) => {
-  const { email, username, password, password2 } = req.body
+  let { email, username, password, password2 } = req.body
+
+  username = username.toLowerCase()
+  email = email.toLowerCase()
 
   // Validation: Check required fields
   if (username === '' || password === '' || email === '') {

@@ -26,6 +26,10 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     .populate('tags')
     .sort([['updated_at', -1]])
     .then(notesList => {
+      notesList.forEach((n) => {
+        n.updated_at_iso = n.updated_at.toISOString()
+        console.log(n.updated_at.toISOString())
+      })
       res.render('dashboard', { user: req.user, notesList: notesList})
     })
 })

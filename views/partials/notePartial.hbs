@@ -13,12 +13,19 @@
 
     {{/each}}
     {{/if}}
-    {{updated_at}}
+
+   
+    <div class="time">{{updated_at_iso}}</div>
+    
     <div class="card-buttons">
       <a href="/notes/{{_id}}/edit" class="btn btn-info">Edit</a>
       <form action="notes/{{_id}}/delete" method="POST">
         <button type="submit" class="btn btn-outline-secondary">Delete</button>
       </form>
     </div>
+    {{!-- <script>
+      let time = document.getElementById('time').innerText
+      document.getElementById('time').innerText = moment(time).format("dddd, MMMM Do YYYY")
+    </script> --}}
   </div>
 </div>
