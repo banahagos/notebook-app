@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -7,8 +7,112 @@ a {
   color: #00B7FF;
 }
 
-/* temporary stylin */
-#form {
+/* HEADER - HOME-LOGGED */
+.header{
+  width: 100%;
+  height: 400px;
+  background-color: azure;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.header-box{
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  width: 100px;
+  height: 100px
+}
+
+.settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logout-profile-settings-box{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 70px;
+}
+
+.profile-btn{
+  height: 30px;
+  width: 70px;
+  font-size: 8px;
+}
+
+/* HOME - SEARCH */
+.search-button{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-box{
+  padding: 0px 80px 0px 80px;
+}
+
+input[placeholder="Search for a tag"]{
+  text-align: center;
+}
+
+/* HOME -  NOTE DISPLAY */
+.tabs{
+  display: flex;
+  justify-content: flex-start
+}
+
+
+
+.card-content{
+  display: flex;
+}
+
+.card-content p{
+  text-decoration: none;
+}
+
+
+.card-buttons{
+  display:flex;
+  justify-content:flex-start;
+}
+
+.btn-floating{
+  margin: 10px;
+}
+
+
+.notes-display{
+  display: flex;
+}
+
+.time{
+  justify-self: flex-end;
+}
+
+/* TAG */
+
+.click-tag{
+  cursor: pointer;
+}
+
+.click-tag:hover{
+  background-color: lightseagreen;
+}
+
+.btn-floating:hover{
+  background-color: lightseagreen;
+}
+
+/* START temporary stylin */
+/* #form {
   margin: 30px auto;
   width: 380px;
 }
@@ -120,4 +224,6 @@ a {
 
 select {
   display: inline
-}
+} */
+
+/* END temporary stylin */

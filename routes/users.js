@@ -56,10 +56,10 @@ router.post('/profile', uploadCloud.single('image'), async (req, res, next) => {
 
     if (req.body.public) {
       await User.updateOne({ _id: req.user._id }, { $set: { username, email, public: true, imgPath } })
-      res.redirect('/dashboard')
+      res.redirect('/home')
     } else {
       await User.updateOne({ _id: req.user._id }, { $set: { username, email, public: false, imgPath } })
-      res.redirect('/dashboard')
+      res.redirect('/home')
     }
 
   }

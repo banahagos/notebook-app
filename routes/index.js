@@ -11,16 +11,16 @@ router.get('/', (req, res, next) => {
       .populate('tags')
       .sort([['updated_at', -1]])
       .then(notesList => {
-        res.render('dashboard', { user: req.user, notesList: notesList })
+        res.render('index/home-logged', { user: req.user, notesList: notesList })
       })
   }
   else {
-    res.render('index')
+    res.render('index/home-unlogged')
   }
 })
 
 // GET home page - logged
-router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.get('/home', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   // Find all notes from the current user
   Note.find({ owner: req.user })
     .populate('tags')
@@ -28,9 +28,8 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     .then(notesList => {
       notesList.forEach((n) => {
         n.updated_at_iso = n.updated_at.toISOString()
-        console.log(n.updated_at.toISOString())
       })
-      res.render('dashboard', { user: req.user, notesList: notesList})
+      res.render('index/home-logged', { user: req.user, notesList: notesList })
     })
 })
 

@@ -17,7 +17,7 @@ const client = new vision.ImageAnnotatorClient({
 
 // GET dashboard
 router.get('/', (req, res, next) => {
-  res.redirect('/dashboard')
+  res.redirect('/home')
 })
 
 // GET show a form to ADD A NOTE
@@ -44,7 +44,7 @@ router.post('/', async (req, res, next) => {
         }
       })
     }
-    res.redirect('/dashboard')
+    res.redirect('/home')
   }
   catch (err) {
     console.log('something went wrong with adding a note')
@@ -88,12 +88,12 @@ router.post('/:id/delete', (req, res, next) => {
     .then(note => {
       // Validation failed: don't update & redirect to dashboard
       if (!note.owner.equals(req.user._id)) {
-        res.redirect('/dashboard')
+        res.redirect('/home')
       } else {
         // Valdation passed: update & redirect to dashboard
         Note.findByIdAndRemove({ _id: req.params.id })
           .then(() => {
-            res.redirect('/dashboard')
+            res.redirect('/home')
           })
       }
     })
@@ -139,14 +139,14 @@ router.post('/:id', async (req, res, next) => {
     // Validation not passed
     let note = await Note.findById(req.params.id)
     if (!note.owner.equals(req.user._id)) {
-      res.redirect('/dashboard')
+      res.redirect('/home')
     } else {
 
       // Validation passed --> start updating the note
       // Update case: tags array is empty
       if (arrayTags.length === 0) {
         await Note.updateOne({ _id: req.params.id }, { $set: { title, text, owner: req.user, tags: [] } })
-        res.redirect('/dashboard')
+        res.redirect('/home')
       }
 
       // Update case: tags array includes tags
@@ -167,7 +167,7 @@ router.post('/:id', async (req, res, next) => {
         }
       })
     }
-    res.redirect('/dashboard')
+    res.redirect('/home')
   }
   catch (err) {
     console.log('something went wrong with updating the note')

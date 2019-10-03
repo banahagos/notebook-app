@@ -1,31 +1,34 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text">{{text}}</p>
-
-    {{#if tags}}
-    {{#each tags}}
-
-    <div class="chip click-tag">
-      {{this.name}}
-
+<div class="card">
+  <div class="card-content">
+    <p>{{title}}</p>
+  </div>
+  {{#if tags}}
+  {{#each tags}}
+  <div class="card-action">
+    <div class="chip click-tag">{{this.name}}</div>
+  </div>
+  {{/each}}
+  {{/if}}
+  <div class="card-action card-buttons">
+    <form action="notes/{{_id}}/delete" method="POST" class="delete-form">
+      <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
+    </form>
+    <div>
+      <a href="/notes/{{_id}}/edit" class="btn-floating pink">
+        <i class="material-icons">edit</i>
+      </a>
     </div>
-
-    {{/each}}
-    {{/if}}
-
-   
-    <div class="time">{{updated_at_iso}}</div>
-    
-    <div class="card-buttons">
-      <a href="/notes/{{_id}}/edit" class="btn btn-info">Edit</a>
-      <form action="notes/{{_id}}/delete" method="POST">
-        <button type="submit" class="btn btn-outline-secondary">Delete</button>
-      </form>
+    <div>
+      <a href="/notes/{{_id}}" class="btn-floating pink detail-btn">
+        <i class="material-icons">library_books</i>
+      </a>
     </div>
-    {{!-- <script>
-      let time = document.getElementById('time').innerText
-      document.getElementById('time').innerText = moment(time).format("dddd, MMMM Do YYYY")
-    </script> --}}
+    <div class="time card-content">{{updated_at_iso}}</div>
   </div>
 </div>
+
+
+
+
+
+
