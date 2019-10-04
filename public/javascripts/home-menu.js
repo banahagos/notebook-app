@@ -14,6 +14,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
+// logout-profile-settings-box
+const profileImg = document.querySelector('.profile-img')
+const settingsAndLogout = document.querySelector('.logout-profile-settings-box')
+profileImg.addEventListener('click', function (e) {
+  settingsAndLogout.style.visibility = "visible";
+})
+
+
+
+// Floating button
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('.fixed-action-btn-card');
+  var instances = M.FloatingActionButton.init(elems, {
+    toolbarEnabled: true
+  });
+});
+
 
 
 

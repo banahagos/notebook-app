@@ -1,11 +1,31 @@
 
 let chipData
+const allTags = [...document.querySelectorAll('.all-tags')]
+
+let data = {}
+let dataObjt = allTags.map(t => {
+
+  data[t.innerHTML] = null
+
+
+})
+
+console.log(data)
+
 /* Start - Materialize documentation  */
 
 // Initialize the chip/tag
 document.addEventListener('DOMContentLoaded', function () {
   const chipEl = document.getElementById('chips');
-  chip = M.Chips.init(chipEl);
+  chip = M.Chips.init(chipEl, {
+    placeholder: 'Enter tags',
+    secondaryPlaceholder: '+ Add more tags',
+    autocompleteOptions: {
+      data: data,
+      limit: Infinity,
+      minlength: 1
+    }
+  });
 
   // Get an array of chip/tag objects
   if (chip) {
@@ -37,6 +57,8 @@ hiddenInput.setAttribute('id', 'chipData')
 if (parentNode) {
   parentNode.appendChild(hiddenInput)
 }
+
+
 
 
 

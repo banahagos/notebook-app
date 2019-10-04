@@ -17,8 +17,8 @@ router.get('/profile', async (req, res, next) => {
 })
 
 router.post('/profile/:id/delete', async (req, res, next) => {
-  await Note.deleteMany({owner: req.user._id})
-  await User.deleteOne({_id: req.user._id})
+  await Note.deleteMany({ owner: req.user._id })
+  await User.deleteOne({ _id: req.user._id })
   res.redirect('/')
 })
 
@@ -45,12 +45,12 @@ router.post('/profile', uploadCloud.single('image'), async (req, res, next) => {
     const checkUsername = await User.findOne({ username })
 
     if (checkEmail !== null && checkEmail.email !== req.user.email) {
-      res.render('user/profile', { message: 'This email already exists', user: req.user})
+      res.render('user/profile', { message: 'This email already exists', user: req.user })
       return
     }
 
     if (checkUsername !== null && checkUsername.username !== req.user.username) {
-      res.render('user/profile', { message: 'This username exists', user: req.user})
+      res.render('user/profile', { message: 'This username exists', user: req.user })
       return
     }
 

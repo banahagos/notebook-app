@@ -21,8 +21,9 @@ router.get('/', (req, res, next) => {
 })
 
 // GET show a form to ADD A NOTE
-router.get('/new', (req, res, next) => {
-  res.render('notes/new')
+router.get('/new', async (req, res, next) => {
+  let tags = await Tag.find({})
+  res.render('notes/new', { tags: tags })
 })
 
 // POST ADD A NOTE
@@ -59,7 +60,7 @@ router.get('/upload', (req, res, next) => {
 
 // POST upload handwritten note + text dectection
 router.post('/upload', uploadCloud.single('image'), async (req, res, next) => {
-  if(!req.file){
+  if (!req.file) {
     res.render('notes/upload', { message: "Something went wrong. Please upload an image." })
   }
   const imgPath = req.file.url;
@@ -120,13 +121,18 @@ router.post('/script', async (req, res, next) => {
 
 
 // GET show a form to edit a note
-router.get('/:id/edit', (req, res, next) => {
-  Note.findById({ _id: req.params.id })
-    .populate('tags')
-    .then(note => {
-      res.render('notes/edit', { note: note })
-    })
-    .catch(err => next(err))
+router.get('/:id/edit', async (req, res, next) => {
+  try {
+    let note = await Note.findById({ _id: req.params.id })
+      .populate('tags')
+    let tags = await Tag.find({})
+    res.render('notes/edit', { note: note, tags: tags })
+  }
+  catch (err) {
+    console.log(err)
+    res.render('notes/edit')
+
+  }
 })
 
 // POST send the data from the form to this route to UPDATE THE NOTE (by owner only)

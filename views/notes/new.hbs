@@ -24,30 +24,6 @@
   </form>
 </div>
 
-
-
-
-
-
-
-{{!-- <form action="/note" method="POST">
-  <div class="form-group">
-    <label for="">Title</label>
-    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="title">
-  </div>
-  <div class="form-group">
-    <label for="">Note</label>
-    <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-
-  <div id="input-field"></div>
-  <!-- Chips  -->
-  <label for="">Tags</label>
-  <div name="tags" id="chips" class="chips">
-  </div>
-
-  <div class="form-button">
-    <button type="submit" class="btn btn-info submit-new-note">Create a note</button>
-  </div>
-
-</form> --}}
+{{#each tags}}
+<p class="all-tags">{{name}}</p>
+{{/each}}

@@ -1,5 +1,5 @@
-<div class="row">
-  <h5>Edit your note</h5>
+<h5 class="edit-headline">Edit your note</h5>
+<div class="row container-edit">
   <form action="/notes/{{note._id}}" method="POST" class="col s12">
     <div class="row">
       <div class="inputField col s12">
@@ -15,9 +15,8 @@
     </div>
     <div id="inputField"></div>
     <!-- Chips  -->
-    <label for="">Tags</label>
-    <div name="tags" id="chips" class="chips">
-    </div>
+    <div name="tags" id="chips" class="chips"></div>
+    {{!-- <div class="chips chips-placeholder"></div> --}}
 
     <button type="submit" class="btn btn-info submit-update">Update</button>
   </form>
@@ -25,7 +24,7 @@
 
 
 {{#if note.imgPath}}
-  <img class="responsive-img" src="{{note.imgPath}}">
+<img class="responsive-img" src="{{note.imgPath}}">
 {{/if}}
 
 
@@ -33,6 +32,12 @@
 
 
 {{#each note.tags}}
-
 <p class="chip-prefill">{{name}}</p>
 {{/each}}
+
+{{#each tags}}
+<p class="all-tags">{{name}}</p>
+{{/each}}
+
+
+

@@ -1,4 +1,43 @@
 <div class="card">
+  <div class="card-content card-title">
+    <p>{{title}}</p>
+  </div>
+
+  <div class="card-action">
+    {{#if tags}}
+    {{#each tags}}
+    <div class="chip click-tag">{{this.name}}</div>
+    {{/each}}
+    {{/if}}
+  </div>
+
+  <div class="card-action card-buttons">
+    <form action="notes/{{_id}}/delete" method="POST" class="delete-form">
+      <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
+    </form>
+    <div>
+      <a href="/notes/{{_id}}" class="btn-floating teal detail-btn">
+        <i class="material-icons">library_books</i>
+      </a>
+    </div>
+    <div>
+      <a href="/notes/{{_id}}/edit" class="btn-floating teal">
+        <i class="material-icons">edit</i>
+      </a>
+    </div>
+    <div class="time card-content">{{updated_at_iso}}</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+{{!-- <div class="card">
   <div class="card-content">
     <p>{{title}}</p>
   </div>
@@ -14,21 +53,15 @@
       <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
     </form>
     <div>
-      <a href="/notes/{{_id}}/edit" class="btn-floating pink">
+      <a href="/notes/{{_id}}/edit" class="btn-floating teal">
         <i class="material-icons">edit</i>
       </a>
     </div>
     <div>
-      <a href="/notes/{{_id}}" class="btn-floating pink detail-btn">
+      <a href="/notes/{{_id}}" class="btn-floating teal detail-btn">
         <i class="material-icons">library_books</i>
       </a>
     </div>
     <div class="time card-content">{{updated_at_iso}}</div>
   </div>
-</div>
-
-
-
-
-
-
+</div> --}}
