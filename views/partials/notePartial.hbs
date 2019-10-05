@@ -11,57 +11,24 @@
     {{/if}}
   </div>
 
-  <div class="card-action card-buttons">
-    <form action="notes/{{_id}}/delete" method="POST" class="delete-form">
-      <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
-    </form>
-    <div>
-      <a href="/notes/{{_id}}" class="btn-floating teal detail-btn">
-        <i class="material-icons">library_books</i>
-      </a>
+  <div class="card-action card-buttons card-row-bottom">
+    <div class="note-edit-delete-functions">
+      <form action="notes/{{_id}}/delete" method="POST" class="delete-form">
+        <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
+      </form>
+      <div>
+        <a href="/notes/{{_id}}" class="btn-floating teal detail-btn">
+          <i class="material-icons">library_books</i>
+        </a>
+      </div>
+      <div>
+        <a href="/notes/{{_id}}/edit" class="btn-floating teal">
+          <i class="material-icons">edit</i>
+        </a>
+      </div>
     </div>
-    <div>
-      <a href="/notes/{{_id}}/edit" class="btn-floating teal">
-        <i class="material-icons">edit</i>
-      </a>
-    </div>
+
+
     <div class="time card-content">{{updated_at_iso}}</div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-{{!-- <div class="card">
-  <div class="card-content">
-    <p>{{title}}</p>
-  </div>
-  {{#if tags}}
-  {{#each tags}}
-  <div class="card-action">
-    <div class="chip click-tag">{{this.name}}</div>
-  </div>
-  {{/each}}
-  {{/if}}
-  <div class="card-action card-buttons">
-    <form action="notes/{{_id}}/delete" method="POST" class="delete-form">
-      <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
-    </form>
-    <div>
-      <a href="/notes/{{_id}}/edit" class="btn-floating teal">
-        <i class="material-icons">edit</i>
-      </a>
-    </div>
-    <div>
-      <a href="/notes/{{_id}}" class="btn-floating teal detail-btn">
-        <i class="material-icons">library_books</i>
-      </a>
-    </div>
-    <div class="time card-content">{{updated_at_iso}}</div>
-  </div>
-</div> --}}

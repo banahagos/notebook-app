@@ -13,12 +13,12 @@ router.get('/', async (req, res, next) => {
       .populate('tags')
       .populate('owner')
       .exec();
-    // res.send(tagSearchResult)
+    // res.send(tag)
     res.render('tags/searchResult', { user: req.user, tagSearchResult: tagSearchResult, searchTerm: req.query.tag })
   }
   catch (err) {
     console.log('something went wrong with searching a tag')
-    res.render('tags/searchResult', { message: "No note found with this tag" })
+    res.render('tags/searchResult', { message: "No note found with this tag", user: req.user })
   }
 })
 

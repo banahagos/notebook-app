@@ -9,6 +9,26 @@ a {
   color: #00B7FF;
 }
 
+/* Profile IMG on all pages except Home */ 
+.non-home-progile-img{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+
+/* All pages */
+.headline{
+  text-align: center;
+  padding-top: 10px;
+}
+
+.logged-in-img{
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 20px 0px 0px
+}
+
 /* HEADER - HOME-LOGGED */
 .header{
   width: 100%;
@@ -31,8 +51,8 @@ a {
 }
 
 .circle {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-image: teal;
 }
 
@@ -63,9 +83,6 @@ a {
   justify-content: flex-end;
 }
 
-.logout-profile-settings-box{
-  visibility: hidden
-}
 .search-box{
   padding: 20px 80px 20px 80px;
 }
@@ -114,6 +131,15 @@ input[placeholder="Search for a tag"]{
   align-items: center;
 }
 
+.note-edit-delete-functions{
+  display: flex;
+}
+
+.card-row-bottom{
+  display: flex;
+  justify-content: space-between
+}
+
 /* TAG */
 
 .click-tag{
@@ -141,19 +167,42 @@ input[placeholder="Search for a tag"]{
 }
 
 /* EDIT PAGE */
-.container-edit{
+.container-form {
   display: flex;
   justify-content: center;
-  padding: 50px;
-}
-
-.edit-headline{
-  text-align: center;
-  padding-top: 50px;
+  padding: 10px 50px 0px 50px;
 }
 
 .chips{
   border: none
+}
+
+/* SHOW DETAILS PAGE */
+.published-by{
+  padding-right: 10px;
+}
+
+.user-info{
+  display: flex;
+  align-items: center;
+}
+
+.note-info{
+  display: flex;
+  justify-content: space-between
+}
+
+/* PROFILE */
+.profile-btn{
+  display: flex;
+  justify-content: center
+}
+
+.delete-account-btn{
+  display: flex;
+  justify-content: center;
+  height: 10px;
+  align-items: center;
 }
 
 /* START temporary stylin */

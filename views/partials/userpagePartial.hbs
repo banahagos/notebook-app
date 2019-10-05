@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-content card-title">
+    <p>{{title}}</p>
+  </div>
+
+  <div class="card-action">
+    {{#if tags}}
+    {{#each tags}}
+    <div class="chip click-tag">{{this.name}}</div>
+    {{/each}}
+    {{/if}}
+  </div>
+  <div class="time card-content">{{updated_at_iso}}</div>
+</div>
+</div>

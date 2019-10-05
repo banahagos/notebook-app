@@ -30,7 +30,7 @@ router.post('/profile', uploadCloud.single('image'), async (req, res, next) => {
   username = username.toLowerCase()
   email = email.toLowerCase()
 
-  let imgPath = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrFZyRsNaziLT66g7YLrNbuaiCstEDLu9sLwK-0qQ8N1LkS_QUw'
+  let imgPath = req.user.imgPath
   if (req.file) {
     imgPath = req.file.url
   }
@@ -74,15 +74,20 @@ router.post('/profile', uploadCloud.single('image'), async (req, res, next) => {
 router.get('/:username', async (req, res, next) => {
   try {
     req.params.username.toLocaleLowerCase()
-    let user = await User.findOne({ username: req.params.username })
-    if (user.public) {
-      let notesList = await Note.find({ owner: user._id })
+    let owner = await User.findOne({ username: req.params.username })
+    if (owner.public) {
+      let notesList = await Note.find({ owner: owner._id })
         .populate('tags')
         .sort([['updated_at', -1]])
-      res.render('user/userpage', { notesList: notesList })
+
+      notesList.forEach(n => {
+        n.updated_at_iso = n.updated_at.toISOString()
+      })
+
+      res.render('user/userpage', { notesList: notesList, owner: owner, user: req.user })
     }
     else {
-      res.render('user/userpage', { message: "This page is private" })
+      res.render('user/userpage', { message: "This page is private", owner: owner, user: req.user })
     }
   }
   catch (err) {

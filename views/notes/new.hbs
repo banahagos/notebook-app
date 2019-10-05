@@ -1,9 +1,15 @@
-<div class="row">
-  <h5>Create a new note</h5>
+<div class="logged-in-img">
+  <a href="/home">
+    <img class="non-home-progile-img" src={{user.imgPath}}>
+  </a>
+</div>
+
+<h5 class="headline">Create a new note</h5>
+<div class="row container-form">
   <form action="/notes" method="POST" class="col s12">
     <div class="row">
       <div class="inputField col s12">
-        <input name="title" placeholder="title" type="text" class="validate">
+        <input name="title" type="text" class="validate">
         <label for="title">Title</label>
       </div>
     </div>
@@ -13,16 +19,13 @@
         <label for="text">Text</label>
       </div>
     </div>
-
     <div id="inputField"></div>
     <!-- Chips  -->
-    <label for="">Tags</label>
-    <div name="tags" id="chips" class="chips">
-    </div>
-
-    <button type="submit" class="btn btn-info submit-new-note">Create a note</button>
+    <div name="tags" id="chips" class="chips"></div>
+    <button type="submit" class="btn btn-info submit-update">Create</button>
   </form>
 </div>
+
 
 {{#each tags}}
 <p class="all-tags">{{name}}</p>

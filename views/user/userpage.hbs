@@ -1,4 +1,72 @@
-<div class="row">
+<div class="logged-in-img">
+  <a href="/home">
+    <img class="non-home-progile-img" src={{user.imgPath}}>
+  </a>
+</div>
+<div class="header">
+  <div class="header-box">
+    <div class="img-settings-logout-msg-box">
+      <div class="settings">
+        <div class="profile-img">
+          <img src="{{owner.imgPath}}" class="circle">
+        </div>
+      </div>
+      <div class="welcome-msg">
+        <h4>{{owner.username}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Search --->
+<div class="search-box">
+  <form action="/tags" method="GET" class="col s12 search-home">
+    <div class="row">
+      <div class="inputField col s12">
+        <input class="search" placeholder="Search for a tag" name="tag" type="text" class="validate">
+      </div>
+    </div>
+    <div class="search-button">
+      <button class="btn search-button waves-effect waves-light" type="submit">Search
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>
+
+<!--- NOTE PARTIALS-->
+{{#if message}}
+<h5 class="headline">{{message}}</h5>
+{{else}}
+<div class="container">
+  <div class="row">
+    <div class="col s12 16 card-display">
+      {{#each notesList}}
+      {{> userpagePartial this}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+{{/if}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div class="row">
   <form action="/tags" method="GET" class="col s12 search-home">
     <div class="row">
       <div class="inputField col s12">
@@ -38,4 +106,4 @@
   </div>
   {{/each}}
 </div>
-{{/if}}
+{{/if}} --}}

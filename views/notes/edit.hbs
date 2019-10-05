@@ -1,5 +1,11 @@
-<h5 class="edit-headline">Edit your note</h5>
-<div class="row container-edit">
+<div class="logged-in-img">
+  <a href="/home">
+    <img class="non-home-progile-img" src={{note.owner.imgPath}}>
+  </a>
+</div>
+
+<h5 class="headline">Edit your note</h5>
+<div class="row container-form">
   <form action="/notes/{{note._id}}" method="POST" class="col s12">
     <div class="row">
       <div class="inputField col s12">
@@ -16,7 +22,7 @@
     <div id="inputField"></div>
     <!-- Chips  -->
     <div name="tags" id="chips" class="chips"></div>
-    {{!-- <div class="chips chips-placeholder"></div> --}}
+
 
     <button type="submit" class="btn btn-info submit-update">Update</button>
   </form>
@@ -38,6 +44,3 @@
 {{#each tags}}
 <p class="all-tags">{{name}}</p>
 {{/each}}
-
-
-

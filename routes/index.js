@@ -20,17 +20,25 @@ router.get('/', (req, res, next) => {
 })
 
 // GET home page - logged
-router.get('/home', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.get('/home', ensureLogin.ensureLoggedIn(), async (req, res, next) => {
   // Find all notes from the current user
-  Note.find({ owner: req.user })
-    .populate('tags')
-    .sort([['updated_at', -1]])
-    .then(notesList => {
-      notesList.forEach((n) => {
-        n.updated_at_iso = n.updated_at.toISOString()
-      })
-      res.render('index/home-logged', { user: req.user, notesList: notesList })
+  try {
+
+    let notesList = await Note.find({ owner: req.user })
+      .populate('tags')
+      .populate('owner')
+      .sort([['updated_at', -1]])
+
+    notesList.forEach(n => {
+      n.updated_at_iso = n.updated_at.toISOString()
     })
+
+
+    res.render('index/home-logged', { user: req.user, notesList: notesList })
+  }
+  catch (err) {
+    console.log(err)
+  }
 })
 
 

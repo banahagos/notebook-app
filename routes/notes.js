@@ -23,7 +23,8 @@ router.get('/', (req, res, next) => {
 // GET show a form to ADD A NOTE
 router.get('/new', async (req, res, next) => {
   let tags = await Tag.find({})
-  res.render('notes/new', { tags: tags })
+  let user = req.user
+  res.render('notes/new', { tags: tags, user: user })
 })
 
 // POST ADD A NOTE
@@ -125,6 +126,7 @@ router.get('/:id/edit', async (req, res, next) => {
   try {
     let note = await Note.findById({ _id: req.params.id })
       .populate('tags')
+      .populate('owner')
     let tags = await Tag.find({})
     res.render('notes/edit', { note: note, tags: tags })
   }
@@ -191,7 +193,7 @@ router.get('/:id', async (req, res, next) => {
       .exec();
 
     let owner = note.owner.equals(req.user._id)
-
+    note.updated_at_iso = note.updated_at.toISOString()
     res.render('notes/show', { note: note, user: req.user, owner })
   }
   catch (err) {

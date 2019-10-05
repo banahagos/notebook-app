@@ -1,4 +1,83 @@
-<div class="row">
+<!--Search --->
+<div class="logged-in-img">
+  <a href="/home">
+    <img class="non-home-progile-img" src={{note.owner.imgPath}}>
+  </a>
+</div>
+
+<div class="search-box">
+  <form action="/tags" method="GET" class="col s12 search-home">
+    <div class="row">
+      <div class="inputField col s12">
+        <input class="search" placeholder="Search for a tag" name="tag" type="text" class="validate">
+      </div>
+    </div>
+    <div class="search-button">
+      <button class="btn search-button waves-effect waves-light" type="submit">Search
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 16 card-display">
+      <div class="card">
+        <div class="card-content card-title">
+          <p>{{note.title}}</p>
+        </div>
+        <div class="card-content">
+          <p>{{note.text}}</p>
+        </div>
+
+        <div class="card-action">
+          {{#if note.tags}}
+          {{#each note.tags}}
+          <div class="chip click-tag">{{this.name}}</div>
+          {{/each}}
+          {{/if}}
+        </div>
+        {{#if owner}}
+        <div class="card-action card-buttons">
+          <form action="/notes/{{note._id}}/delete" method="POST" class="delete-form">
+            <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
+          </form>
+          <div>
+            <a href="/notes/{{note._id}}/edit" class="btn-floating teal">
+              <i class="material-icons">edit</i>
+            </a>
+          </div>
+          {{/if}}
+        </div>
+        <div class="card-action note-info">
+          <div class="user-info">
+            <p class="published-by">Published by:</p>
+            <a href="/users/{{note.owner.username}}">
+              <div class="chip">
+                <img src={{note.owner.imgPath}}>
+                <strong>{{note.owner.username}}</strong>
+              </div>
+            </a>
+          </div>
+          <div class="time card-content">{{note.updated_at_iso}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  {{!-- <div class="row">
   <form action="/tags" method="GET" class="col s12 search-home">
     <div class="row">
       <div class="inputField col s12">
@@ -44,4 +123,4 @@
 </form>
 {{#if owner}}
 <a href="/notes/{{note._id}}/edit" class="btn btn-info">Edit</a>
-{{/if}}
+{{/if}} --}}
