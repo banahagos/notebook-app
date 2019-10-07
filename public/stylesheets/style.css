@@ -2,7 +2,6 @@
 body {
   /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
 }
 
 a {
@@ -20,7 +19,7 @@ a {
 /* All pages */
 .headline{
   text-align: center;
-  padding-top: 10px;
+  padding: 10px 20px 0px 20px;
 }
 
 .logged-in-img{
@@ -38,7 +37,6 @@ a {
   align-items: center;
   justify-content: center; 
   color: white;
-
 }
 
 .profile-img{
@@ -47,7 +45,6 @@ a {
 .header-box{
   display: flex;
   justify-content: center;
-
 }
 
 .circle {
@@ -92,14 +89,19 @@ input[placeholder="Search for a tag"]{
 }
 
 /* HOME -  NOTE DISPLAY */
+
+.time{
+  font-size: 12px;
+}
 .tabs{
   display: flex;
   justify-content: flex-start
 }
 
-.card-content{
+
+/* .card-content{
   display: flex;
-}
+} */
 
 .card-content p{
   text-decoration: none;
@@ -129,6 +131,7 @@ input[placeholder="Search for a tag"]{
   height: 30px;
   display: flex;
   align-items: center;
+  justify-content: space-between
 }
 
 .note-edit-delete-functions{
@@ -156,6 +159,14 @@ input[placeholder="Search for a tag"]{
 
 .card-action{
   display: flex;
+}
+
+.paper {
+  background-color: #fff;
+  background-image:
+  /* linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), */
+  linear-gradient(#eee .1em, transparent .1em);
+  background-size: 100% 1.2em;
 }
 
 .all-tags{
@@ -204,6 +215,42 @@ input[placeholder="Search for a tag"]{
   height: 10px;
   align-items: center;
 }
+
+/* ERROR */ 
+
+.error-message {
+  background: #F02B63;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 40px auto; 
+  padding: 20px;
+  width: 100%; 
+  text-align: center;
+}
+
+/* MYSCRIPT HANDWRITING */
+select {
+  display: inline
+} 
+
+#script{
+  padding: 0px 20px 5px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around
+}
+
+/* PRELOADER */ 
+.progress {
+  visibility: hidden;
+  margin: 40px auto; 
+  padding: 20px;
+  width: 100%; 
+  text-align: center;
+}
+
+/* HOME UNLOGGED */
+
 
 /* START temporary stylin */
 /* #form {

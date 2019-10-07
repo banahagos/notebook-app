@@ -1,23 +1,20 @@
 
 let chipData
-const allTags = [...document.querySelectorAll('.all-tags')]
 
+// Collecting all tags from the database
+const allTags = [...document.querySelectorAll('.all-tags')]
 let data = {}
 let dataObjt = allTags.map(t => {
-
   data[t.innerHTML] = null
-
-
 })
-
-console.log(data)
 
 /* Start - Materialize documentation  */
 
 // Initialize the chip/tag
 document.addEventListener('DOMContentLoaded', function () {
-  const chipEl = document.getElementById('chips');
-  chip = M.Chips.init(chipEl, {
+  let chipEl = document.getElementById('chip');
+   let chipElement = M.Chips.init(chipEl,
+     {
     placeholder: 'Enter tags',
     secondaryPlaceholder: '+ Add more tags',
     autocompleteOptions: {
@@ -28,8 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Get an array of chip/tag objects
-  if (chip) {
-    chipData = chip.chipsData
+  console.log("chipElement", chipElement)
+  if (chipElement) {
+    chipData = chipElement.chipsData
     console.log(chipData) // check the data that's returned
   }
 
@@ -38,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const prefillTags = [...document.getElementsByClassName('chip-prefill')]
 
   prefillTags.forEach(element => {
-    chip.addChip({
+    chipElement.addChip({
       tag: element.innerText,
     })
     element.style.visibility = "hidden"
@@ -57,9 +55,6 @@ hiddenInput.setAttribute('id', 'chipData')
 if (parentNode) {
   parentNode.appendChild(hiddenInput)
 }
-
-
-
 
 
 // Add all entered tags to the hidden input field (Create & Edit page)

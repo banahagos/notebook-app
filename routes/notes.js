@@ -56,13 +56,13 @@ router.post('/', async (req, res, next) => {
 
 // GET show a form to upload handwritten note
 router.get('/upload', (req, res, next) => {
-  res.render('notes/upload')
+  res.render('notes/upload', { user: req.user })
 })
 
 // POST upload handwritten note + text dectection
 router.post('/upload', uploadCloud.single('image'), async (req, res, next) => {
   if (!req.file) {
-    res.render('notes/upload', { message: "Something went wrong. Please upload an image." })
+    res.render('notes/upload', { message: "Something went wrong. Please upload an image.", user: req.user })
   }
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
@@ -78,9 +78,8 @@ router.post('/upload', uploadCloud.single('image'), async (req, res, next) => {
   }
   catch (err) {
     console.log('something went wrong with text detection', err)
-    res.render('notes/upload', { message: "Something went wrong. Please try another image." })
+    res.render('notes/upload', { message: "Something went wrong. Please try another image.", user: req.user })
   }
-
 })
 
 

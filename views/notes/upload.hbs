@@ -1,5 +1,11 @@
-<div class="row">
-  <h5>Upload & convert a handwritten note</h5>
+<div class="logged-in-img">
+  <a href="/home">
+    <img class="non-home-progile-img" src={{user.imgPath}}>
+  </a>
+</div>
+
+<h5 class="headline">Convert an image of a handwritten note</h5>
+<div class="row container-form">
   <form action="/notes/upload" method="POST" enctype="multipart/form-data" class="col s12">
     <div class="row">
       <div class="inputField col s12">
@@ -8,8 +14,8 @@
       </div>
     </div>
     <div class="file-field inputField">
-      <div class="btn">
-        <span>File</span>
+      <div class="btn btn-img">
+        <span>Image</span>
         <input type="file" name="image">
       </div>
       <div class="file-path-wrapper">
@@ -22,3 +28,21 @@
 {{#if message}}
 <div class="error-message">{{ message }}</div>
 {{/if}}
+
+<!--Preloader -->
+<div class="progress">
+  <div class="indeterminate"></div>
+</div>
+
+<!--- MENUE - TO CREATE NOTES-->
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large pink">
+    <i class="large material-icons">add</i>
+  </a>
+  <ul>
+    <li><a href="/notes/new" class="btn-floating red"><i class="material-icons">create</i></a></li>
+    <li><a href="/notes/upload" class="btn-floating yellow darken-1"><i class="material-icons">add_a_photo</i></a>
+    </li>
+    <li><a href="/notes/script" class="btn-floating green"><i class="material-icons">gesture</i></a></li>
+  </ul>
+</div>

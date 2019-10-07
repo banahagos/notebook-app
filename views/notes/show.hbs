@@ -1,10 +1,11 @@
-<!--Search --->
+<!--Profile --->
 <div class="logged-in-img">
   <a href="/home">
     <img class="non-home-progile-img" src={{note.owner.imgPath}}>
   </a>
 </div>
 
+<!--Search --->
 <div class="search-box">
   <form action="/tags" method="GET" class="col s12 search-home">
     <div class="row">
@@ -21,27 +22,29 @@
 </div>
 
 
-
 <div class="container">
   <div class="row">
     <div class="col s12 16 card-display">
       <div class="card">
+        {{#if note.title}}
         <div class="card-content card-title">
           <p>{{note.title}}</p>
         </div>
-        <div class="card-content">
+        {{/if}}
+        {{#if note.text}}
+        <div class="card-content ">
           <p>{{note.text}}</p>
         </div>
-
-        <div class="card-action">
-          {{#if note.tags}}
+        {{/if}}
+        {{#if note.tags}}
+        <div class="card-action ">
           {{#each note.tags}}
           <div class="chip click-tag">{{this.name}}</div>
           {{/each}}
-          {{/if}}
         </div>
+        {{/if}}
         {{#if owner}}
-        <div class="card-action card-buttons">
+        <div class="card-action card-buttons ">
           <form action="/notes/{{note._id}}/delete" method="POST" class="delete-form">
             <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
           </form>
@@ -52,75 +55,35 @@
           </div>
           {{/if}}
         </div>
-        <div class="card-action note-info">
+        <div class="card-action note-info ">
           <div class="user-info">
             <p class="published-by">Published by:</p>
             <a href="/users/{{note.owner.username}}">
               <div class="chip">
-                <img src={{note.owner.imgPath}}>
+                <img src={{note.owner.imgPath}} alt="profile image">
                 <strong>{{note.owner.username}}</strong>
               </div>
             </a>
           </div>
-          <div class="time card-content">{{note.updated_at_iso}}</div>
+        </div>
+        <div class="card-action ">
+          <div class="time">{{note.updated_at_iso}}</div>
         </div>
       </div>
     </div>
   </div>
 
+  <!--- MENUE - TO CREATE NOTES-->
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large pink">
+      <i class="large material-icons">add</i>
+    </a>
+    <ul>
+      <li><a href="/notes/new" class="btn-floating red"><i class="material-icons">create</i></a></li>
+      <li><a href="/notes/upload" class="btn-floating yellow darken-1"><i class="material-icons">add_a_photo</i></a>
+      </li>
+      <li><a href="/notes/script" class="btn-floating green"><i class="material-icons">gesture</i></a></li>
+    </ul>
+  </div>
 
-
-
-
-
-
-
-
-
-  {{!-- <div class="row">
-  <form action="/tags" method="GET" class="col s12 search-home">
-    <div class="row">
-      <div class="inputField col s12">
-        <input class="search" placeholder="Search for a tag" name="tag" type="text" class="validate">
-        <label for="Search">Search</label>
-      </div>
-    </div>
-    <button class="btn waves-effect waves-light" type="submit">Search
-      <i class="material-icons right">send</i>
-    </button>
-  </form>
-</div>
-
-
-
-<table>
-  <tbody>
-    <tr>
-      <th>Title</th>
-      <td>{{note.title}}</td>
-    </tr>
-    <tr>
-      <th>Text</th>
-      <td>{{note.text}}</td>
-    </tr>
-    <tr>
-      <th>Tags</th>
-      <td>{{#if note.tags}}
-        {{#each note.tags}}
-
-        <div class="chip click-tag">
-          {{this.name}}
-
-        </div>
-
-        {{/each}}
-        {{/if}}</td>
-    </tr>
-  </tbody>
-</table>
-<form action="/users/{{note.owner.username}}">
-  <p>published by: <a href="/users/{{note.owner.username}}">{{note.owner.username}}</a></p>
-</form>
-{{#if owner}}
-<a href="/notes/{{note._id}}/edit" class="btn btn-info">Edit</a>
-{{/if}} --}}
+  

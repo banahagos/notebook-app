@@ -1,8 +1,8 @@
-<div id="result"></div>
+{{!-- <div id="result"></div> --}}
 <div>
     <form action="/notes/script" method="POST" id="script">
         <textarea id="result-input" type="text" name="recoResult" class="materialize-textarea"></textarea>
-        <button id="save-button-handwriting" type="submit">Save</button>
+        <button id="save-button-handwriting" class="waves-effect waves-light btn-small" type="submit">Save</button>
     </form>
     <nav>
         <div class="button-div">
@@ -17,8 +17,8 @@
             </button>
         </div>
         <select id="language">
-            <option value="en_US" selected>English (United States)</option>
-            <option value="de_DE">Deutsch</option>
+            <option value="en_US" selected>EN (US)</option>
+            <option value="de_DE">DE</option>
         </select>
     </nav>
     <div id="editor" touch-action="none"></div>

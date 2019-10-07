@@ -1,17 +1,18 @@
 <div class="card">
+  <a href="/notes/{{_id}}">
   <div class="card-content card-title">
     <p>{{title}}</p>
   </div>
-
-  <div class="card-action">
-    {{#if tags}}
+  </a>
+  {{#if tags}}
+  <div class="card-action ">
     {{#each tags}}
     <div class="chip click-tag">{{this.name}}</div>
     {{/each}}
-    {{/if}}
   </div>
+  {{/if}}
 
-  <div class="card-action card-buttons card-row-bottom">
+  <div class="card-action card-buttons card-row-bottom ">
     <div class="note-edit-delete-functions">
       <form action="notes/{{_id}}/delete" method="POST" class="delete-form">
         <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
@@ -25,10 +26,8 @@
         <a href="/notes/{{_id}}/edit" class="btn-floating teal">
           <i class="material-icons">edit</i>
         </a>
-      </div>
     </div>
-
-
-    <div class="time card-content">{{updated_at_iso}}</div>
   </div>
+  <div class="time card-content">{{updated_at_iso}}</div>
+</div>
 </div>

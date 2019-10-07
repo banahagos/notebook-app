@@ -1,15 +1,16 @@
+<a href="/notes/{{_id}}">
 <div class="card">
   <div class="card-content card-title">
     <p>{{title}}</p>
   </div>
-
+  </a>
+  {{#if tags}}
   <div class="card-action">
-    {{#if tags}}
     {{#each tags}}
     <div class="chip click-tag">{{this.name}}</div>
     {{/each}}
-    {{/if}}
   </div>
+  {{/if}}
   <div class="time card-content">{{updated_at_iso}}</div>
 </div>
 </div>
