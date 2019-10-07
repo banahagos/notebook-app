@@ -25,25 +25,29 @@
 <div class="container">
   <div class="row">
     <div class="col s12 16 card-display">
-      <div class="card">
+      <div class="card paper">
         {{#if note.title}}
         <div class="card-content card-title">
-          <p>{{note.title}}</p>
+          <span class="card-title">{{note.title}}</span>
+          {{#if owner}}
+          <a href="/notes/{{note._id}}/edit" class="btn-floating halfway-fab waves-effect waves-light teal"><i
+              class="material-icons">edit</i></a>
+          {{/if}}
         </div>
         {{/if}}
         {{#if note.text}}
-        <div class="card-content ">
+        <div class="card-content paper">
           <p>{{note.text}}</p>
         </div>
         {{/if}}
         {{#if note.tags}}
-        <div class="card-action ">
+        <div class="card-action paper">
           {{#each note.tags}}
           <div class="chip click-tag">{{this.name}}</div>
           {{/each}}
         </div>
         {{/if}}
-        {{#if owner}}
+        {{!-- {{#if owner}}
         <div class="card-action card-buttons ">
           <form action="/notes/{{note._id}}/delete" method="POST" class="delete-form">
             <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
@@ -53,9 +57,9 @@
               <i class="material-icons">edit</i>
             </a>
           </div>
-          {{/if}}
-        </div>
-        <div class="card-action note-info ">
+          {{/if}} --}}
+        {{!-- </div> --}}
+        <div class="card-action note-info paper">
           <div class="user-info">
             <p class="published-by">Published by:</p>
             <a href="/users/{{note.owner.username}}">
@@ -66,7 +70,7 @@
             </a>
           </div>
         </div>
-        <div class="card-action ">
+        <div class="card-action paper">
           <div class="time">{{note.updated_at_iso}}</div>
         </div>
       </div>
@@ -85,5 +89,3 @@
       <li><a href="/notes/script" class="btn-floating green"><i class="material-icons">gesture</i></a></li>
     </ul>
   </div>
-
-  

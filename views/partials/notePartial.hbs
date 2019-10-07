@@ -1,21 +1,27 @@
-<div class="card">
+<div class="card paper">
   <a href="/notes/{{_id}}">
-  <div class="card-content card-title">
-    <p>{{title}}</p>
-  </div>
+    <div class="card-content card-title">
+      <span class="card-title">{{title}}</span>
+      <a href="/notes/{{_id}}/edit" class="btn-floating halfway-fab waves-effect waves-light teal"><i
+          class="material-icons">edit</i></a>
+      {{!-- <p>{{title}}</p> --}}
+    </div>
   </a>
   {{#if tags}}
-  <div class="card-action ">
+  <div class="card-action paper">
     {{#each tags}}
     <div class="chip click-tag">{{this.name}}</div>
     {{/each}}
   </div>
   {{/if}}
+  <div class="time card-content">{{updated_at_iso}}</div>
 
-  <div class="card-action card-buttons card-row-bottom ">
+
+
+  {{!-- <div class="card-action card-buttons card-row-bottom paper">
     <div class="note-edit-delete-functions">
       <form action="notes/{{_id}}/delete" method="POST" class="delete-form">
-        <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
+        <a class="btn-floating halfway-fab btn-delete grey"><i class="material-icons">delete</i></a>
       </form>
       <div>
         <a href="/notes/{{_id}}" class="btn-floating teal detail-btn">
@@ -29,5 +35,5 @@
     </div>
   </div>
   <div class="time card-content">{{updated_at_iso}}</div>
-</div>
+</div> --}}
 </div>

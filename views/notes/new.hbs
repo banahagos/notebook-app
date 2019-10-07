@@ -1,38 +1,38 @@
 <div class="paper">
-<div class="logged-in-img">
-  <a href="/home">
-    <img class="non-home-progile-img" src={{user.imgPath}}>
-  </a>
-</div>
+  <div class="logged-in-img">
+    <a href="/home">
+      <img class="non-home-progile-img" src={{user.imgPath}}>
+    </a>
+  </div>
 
-<h5 class="headline">Create a new note</h5>
-<div class="row container-form">
-  <form action="/notes" method="POST" class="col s12">
-    <div class="row">
-      <div class="inputField col s12">
-        <input name="title" type="text" class="validate">
-        <label for="title">Title</label>
+  <h5 class="headline">Create a new note</h5>
+  <div class="row container-form">
+    <form action="/notes" method="POST" class="col s12">
+      <div class="row">
+        <div class="inputField col s12">
+          <input name="title" type="text" class="validate">
+          <label for="title">Title</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="inputField col s12">
-        <textarea name="text" id="textarea1" class="materialize-textarea"></textarea>
-        <label for="text">Text</label>
+      <div class="row">
+        <div class="inputField col s12">
+          <textarea name="text" id="textarea1" class="materialize-textarea"></textarea>
+          <label for="text">Text</label>
+        </div>
       </div>
-    </div>
-    <div id="inputField"></div>
-    <!-- Chips  -->
-    <div name="tags" id="chip" class="chips"></div>
-    <button type="submit" class="btn btn-info submit-update">Create</button>
-  </form>
-</div>
+      <div id="inputField"></div>
+      <!-- Chips  -->
+      <div name="tags" id="chip" class="chips"></div>
+      <button type="submit" class="btn btn-info submit-update">Create</button>
+    </form>
+  </div>
 
 
-{{#each tags}}
-<p class="all-tags">{{name}}</p>
-{{/each}}
+  {{#each tags}}
+  <p class="all-tags">{{name}}</p>
+  {{/each}}
 
- <!--- MENUE - TO CREATE NOTES-->
+  <!--- MENUE - TO CREATE NOTES-->
   <div class="fixed-action-btn">
     <a class="btn-floating btn-large pink">
       <i class="large material-icons">add</i>
@@ -44,5 +44,4 @@
       <li><a href="/notes/script" class="btn-floating green"><i class="material-icons">gesture</i></a></li>
     </ul>
   </div>
-
-  </div>
+</div>

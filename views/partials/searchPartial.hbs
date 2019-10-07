@@ -1,16 +1,16 @@
 {{#if owner.public}}
-  <div class="card">
-    <a href="/notes/{{_id}}">
+<div class="card paper">
+  <a href="/notes/{{_id}}">
     <div class="card-content card-title">
       <p>{{title}}</p>
     </div>
-</a>
-<div class="card-action">
+  </a>
   {{#if tags}}
-  {{#each tags}}
-  <div class="chip click-tag">{{this.name}}</div>
-  {{/each}}
+  <div class="card-action paper">
+    {{#each tags}}
+    <div class="chip click-tag">{{this.name}}</div>
+    {{/each}}
+  </div>
   {{/if}}
-</div>
 </div>
 {{/if}}

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(e){
+document.addEventListener('DOMContentLoaded', function (e) {
   const deleteAccount = document.querySelector('.modal')
   M.Modal.init(deleteAccount, {})
 })

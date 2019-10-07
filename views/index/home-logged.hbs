@@ -5,32 +5,25 @@
         <div class="profile-img">
           <a href="/users/profile"> <img src="{{user.imgPath}}" class="circle"> </a>
         </div>
-        <div class="logout-profile-settings-box">
-          <div class="profile-setting">
-            <a href="/users/profile"><button class="profile-btn waves-effect waves-light btn">Settings</button></a>
-          </div>
-          <div class="logout">
-            <a href="/logout"><button class="profile-btn waves-effect waves-light btn">Logout</button></a>
-          </div>
-        </div>
       </div>
       <div class="welcome-msg">
-        <h4>welcome {{user.username}}</h4>
+        <h4>{{user.username}}</h4>
       </div>
     </div>
   </div>
 </div>
 
+
 <!--Search --->
 <div class="search-box">
   <form action="/tags" method="GET" class="col s12 search-home">
-    <div class="row">
+    <div class="row search-el">
       <div class="inputField col s12">
         <input class="search" placeholder="Search for a tag" name="tag" type="text" class="validate">
       </div>
     </div>
     <div class="search-button">
-      <button class="btn search-button waves-effect waves-light" type="submit">Search
+      <button class="btn-small search-button waves-effect waves-light" type="submit">Search
         <i class="material-icons right">send</i>
       </button>
     </div>
@@ -48,15 +41,15 @@
   </div>
 </div>
 
- <!--- MENUE - TO CREATE NOTES-->
-  <div class="fixed-action-btn">
-    <a class="btn-floating btn-large pink">
-      <i class="large material-icons">add</i>
-    </a>
-    <ul>
-      <li><a href="/notes/new" class="btn-floating red"><i class="material-icons">create</i></a></li>
-      <li><a href="/notes/upload" class="btn-floating yellow darken-1"><i class="material-icons">add_a_photo</i></a>
-      </li>
-      <li><a href="/notes/script" class="btn-floating green"><i class="material-icons">gesture</i></a></li>
-    </ul>
-  </div>
+<!--- MENUE - TO CREATE NOTES-->
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large pink">
+    <i class="large material-icons">add</i>
+  </a>
+  <ul>
+    <li><a href="/notes/new" class="btn-floating red"><i class="material-icons">create</i></a></li>
+    <li><a href="/notes/upload" class="btn-floating yellow darken-1"><i class="material-icons">add_a_photo</i></a>
+    </li>
+    <li><a href="/notes/script" class="btn-floating green"><i class="material-icons">gesture</i></a></li>
+  </ul>
+</div>

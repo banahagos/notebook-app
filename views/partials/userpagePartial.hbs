@@ -1,6 +1,23 @@
-<a href="/notes/{{_id}}">
+<div class="card paper">
+  <a href="/notes/{{_id}}">
+    <div class="card-content card-title">
+      <span class="card-title">{{title}}</span>
+    </div>
+  </a>
+  {{#if tags}}
+  <div class="card-action paper">
+    {{#each tags}}
+    <div class="chip click-tag">{{this.name}}</div>
+    {{/each}}
+  </div>
+  {{/if}}
+  <div class="time card-content">{{updated_at_iso}}</div>
+
+  {{!-- 
+
 <div class="card">
   <div class="card-content card-title">
+    <a href="/notes/{{_id}}">
     <p>{{title}}</p>
   </div>
   </a>
@@ -13,4 +30,4 @@
   {{/if}}
   <div class="time card-content">{{updated_at_iso}}</div>
 </div>
-</div>
+</div> --}}

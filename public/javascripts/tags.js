@@ -13,16 +13,16 @@ let dataObjt = allTags.map(t => {
 // Initialize the chip/tag
 document.addEventListener('DOMContentLoaded', function () {
   let chipEl = document.getElementById('chip');
-   let chipElement = M.Chips.init(chipEl,
-     {
-    placeholder: 'Enter tags',
-    secondaryPlaceholder: '+ Add more tags',
-    autocompleteOptions: {
-      data: data,
-      limit: Infinity,
-      minlength: 1
-    }
-  });
+  let chipElement = M.Chips.init(chipEl,
+    {
+      placeholder: 'Enter tags',
+      secondaryPlaceholder: '+ Add more tags',
+      autocompleteOptions: {
+        data: data,
+        limit: Infinity,
+        minlength: 1
+      }
+    });
 
   // Get an array of chip/tag objects
   console.log("chipElement", chipElement)

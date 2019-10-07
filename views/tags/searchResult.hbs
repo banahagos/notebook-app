@@ -30,14 +30,13 @@
 {{#if tagSearchResult.[0].owner.public}}
 <div class="container">
   <div class="row">
+    {{#each tagSearchResult}}
     <div class="col s12 16 card-display">
-      {{#each tagSearchResult}}
       {{> searchPartial this}}
     </div>
+    {{/each}}
   </div>
 </div>
-</div>
-{{/each}}
 {{/if}}
 {{#if message}}
 <div class="error-message">{{message}}</div>

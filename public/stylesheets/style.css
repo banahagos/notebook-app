@@ -2,6 +2,7 @@
 body {
   /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: 	#708090;
 }
 
 a {
@@ -15,6 +16,9 @@ a {
   height: 40px;
 }
 
+.logout-btn{
+  padding-right: 20px;
+}
 
 /* All pages */
 .headline{
@@ -31,7 +35,7 @@ a {
 /* HEADER - HOME-LOGGED */
 .header{
   width: 100%;
-  height: 250px;
+  height: 180px;
   background-color: teal;
   display: flex;
   align-items: center;
@@ -60,13 +64,13 @@ a {
   justify-content: space-around;
 }
 
-.logout-profile-settings-box{
+/* .logout-profile-settings-box{
   display:flex;
   justify-content: center;
   flex-direction: column;
   justify-content: space-around;
   height: 70px;
-}
+} */
 
 .profile-btn{
   height: 30px;
@@ -123,11 +127,12 @@ input[placeholder="Search for a tag"]{
 
 .time{
   justify-self: flex-end;
+  height: 5px;
 }
 
 .card-title{
-  background-color: teal;
-  color: white;
+  /* background-color: teal; */
+  color: 	#708090;
   height: 30px;
   display: flex;
   align-items: center;
@@ -188,6 +193,11 @@ input[placeholder="Search for a tag"]{
   border: none
 }
 
+.delete-form{
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
 /* SHOW DETAILS PAGE */
 .published-by{
   padding-right: 10px;
@@ -203,6 +213,12 @@ input[placeholder="Search for a tag"]{
   justify-content: space-between
 }
 
+.header-edit{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* PROFILE */
 .profile-btn{
   display: flex;
@@ -214,6 +230,13 @@ input[placeholder="Search for a tag"]{
   justify-content: center;
   height: 10px;
   align-items: center;
+}
+
+.logged-in-img-logout-btn{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
 }
 
 /* ERROR */ 

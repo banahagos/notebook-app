@@ -1,60 +1,64 @@
 <div class="paper">
-<div class="logged-in-img">
-  <a href="/home">
-    <img class="non-home-progile-img" src={{note.owner.imgPath}}>
-  </a>
-</div>
-
-<h5 class="headline">Edit your note</h5>
-<div class="row container-form">
-  <form action="/notes/{{note._id}}" method="POST" class="col s12">
-    <div class="row">
-      <div class="inputField col s12">
-        <input name="title" value="{{note.title}}" type="text" class="validate">
-        <label for="title">Title</label>
-      </div>
+  <div class="header-edit">
+    <form action="/notes/{{note._id}}/delete" method="POST" class="delete-form">
+      <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
+    </form>
+    <div class="logged-in-img">
+      <a href="/home">
+        <img class="non-home-progile-img" src={{note.owner.imgPath}}>
+      </a>
     </div>
-    <div class="row">
-      <div class="inputField col s12">
-        <textarea name="text" id="textarea1" class="materialize-textarea">{{note.text}}</textarea>
-        <label for="text">Text</label>
+  </div>
+
+  <h5 class="headline">Edit your note</h5>
+  <div class="row container-form">
+    <form action="/notes/{{note._id}}" method="POST" class="col s12">
+      <div class="row">
+        <div class="inputField col s12">
+          <input name="title" value="{{note.title}}" type="text" class="validate">
+          <label for="title">Title</label>
+        </div>
       </div>
-    </div>
-    <div id="inputField"></div>
-    <!-- Chips  -->
-    <div class="chips" id="chip"></div>
-    <button type="submit" class="btn btn-info submit-update">Update</button>
-  </form>
-</div>
+      <div class="row">
+        <div class="inputField col s12">
+          <textarea name="text" id="textarea1" class="materialize-textarea">{{note.text}}</textarea>
+          <label for="text">Text</label>
+        </div>
+      </div>
+      <div id="inputField"></div>
+      <!-- Chips  -->
+      <div class="chips" id="chip"></div>
+      <button type="submit" class="btn btn-info submit-update">Update</button>
+    </form>
+  </div>
 
 
-{{#if note.imgPath}}
-<img class="responsive-img" src="{{note.imgPath}}">
-{{/if}}
+  {{#if note.imgPath}}
+  <img class="responsive-img" src="{{note.imgPath}}">
+  {{/if}}
 
 
 
 
 
-{{#each note.tags}}
-<p class="chip-prefill">{{name}}</p>
-{{/each}}
+  {{#each note.tags}}
+  <p class="chip-prefill">{{name}}</p>
+  {{/each}}
 
-{{#each tags}}
-<p class="all-tags">{{name}}</p>
-{{/each}}
+  {{#each tags}}
+  <p class="all-tags">{{name}}</p>
+  {{/each}}
 
-<!--- MENUE - TO CREATE NOTES-->
-<div class="fixed-action-btn">
-  <a class="btn-floating btn-large pink">
-    <i class="large material-icons">add</i>
-  </a>
-  <ul>
-    <li><a href="/notes/new" class="btn-floating red"><i class="material-icons">create</i></a></li>
-    <li><a href="/notes/upload" class="btn-floating yellow darken-1"><i class="material-icons">add_a_photo</i></a>
-    </li>
-    <li><a href="/notes/script" class="btn-floating green"><i class="material-icons">gesture</i></a></li>
-  </ul>
-</div>
-
+  <!--- MENUE - TO CREATE NOTES-->
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large pink">
+      <i class="large material-icons">add</i>
+    </a>
+    <ul>
+      <li><a href="/notes/new" class="btn-floating red"><i class="material-icons">create</i></a></li>
+      <li><a href="/notes/upload" class="btn-floating yellow darken-1"><i class="material-icons">add_a_photo</i></a>
+      </li>
+      <li><a href="/notes/script" class="btn-floating green"><i class="material-icons">gesture</i></a></li>
+    </ul>
+  </div>
 </div>
