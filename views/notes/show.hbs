@@ -25,7 +25,7 @@
 <div class="container">
   <div class="row">
     <div class="col s12 16 card-display">
-      <div class="card paper">
+      <div class="card">
         {{#if note.title}}
         <div class="card-content card-title">
           <span class="card-title">{{note.title}}</span>
@@ -36,12 +36,12 @@
         </div>
         {{/if}}
         {{#if note.text}}
-        <div class="card-content paper">
+        <div class="card-content">
           <p>{{note.text}}</p>
         </div>
         {{/if}}
         {{#if note.tags}}
-        <div class="card-action paper">
+        <div class="card-action">
           {{#each note.tags}}
           <div class="chip click-tag">{{this.name}}</div>
           {{/each}}
@@ -59,7 +59,7 @@
           </div>
           {{/if}} --}}
         {{!-- </div> --}}
-        <div class="card-action note-info paper">
+        <div class="card-action note-info">
           <div class="user-info">
             <p class="published-by">Published by:</p>
             <a href="/users/{{note.owner.username}}">
@@ -70,7 +70,7 @@
             </a>
           </div>
         </div>
-        <div class="card-action paper">
+        <div class="card-action">
           <div class="time">{{note.updated_at_iso}}</div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
 
 body {
   /* padding: 50px; */
@@ -32,6 +33,34 @@ a {
   padding: 20px 20px 0px 0px
 }
 
+/* HOME - UNLOGGED */
+.caption h4{
+  color: #7F8C8D;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.home-unlogged-headline{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 30px;
+  color: #7F8C8D;
+  font-family: 'Open Sans Condensed', sans-serif;
+  background-color: #38477C;
+}
+
+.app-name{
+  float: left;
+    line-height: 1em;
+    list-style: none outside none;
+    /* margin: 0; */
+    position: relative;
+    z-index: 101;
+}
+
+.slides{
+  background-color: #38477C;
+}
 /* HEADER - HOME-LOGGED */
 .header{
   width: 100%;
