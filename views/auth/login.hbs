@@ -1,24 +1,27 @@
-<form action="/login" method="POST" id="form">
-  {{#if success_msg}}
-  <div class="success-msg">{{success_msg}}</div>
-  {{/if}}
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" name="email">
+<div class="auth-container auth-container-login">
+  {{!-- <h3 class="app-name-auth">scriptbook</h3> --}}
+  <div class="wrap">
+    <h3 class="auth-headline">scriptbook</h3>
+    <form action="/login" method="POST" class="auth-form auth-form-login" id="form">
+      {{#if success_msg}}
+      <div class="success-msg">{{success_msg}}</div>
+      {{/if}}
+      <input type="email" name="email" placeholder="email">
+      <input type="password" name="password" placeholder="password">
+
+      {{#if message}}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
+      <div>
+        <button class="btn auth-submit" type="submit">Log in</button>
+      </div>
+      <p class="account-message">
+        Don't have an account?
+        <a href="/signup">Sign up</a>
+      </p>
+      <a class="back-home" href='/'>Back home</a>
+    </form>
   </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
-  </div>
-  {{#if message}}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <div>
-    <button type="submit">Log in</button>
-  </div>
-  <p class="account-message">
-    Don't have an account?
-    <a href="/signup">Sign up</a>
-  </p>
-  <p><a href='/'>Back home</a></p>
-</form>
+</div>
+
+

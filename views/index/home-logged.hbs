@@ -3,11 +3,19 @@
     <div class="img-settings-logout-msg-box">
       <div class="settings">
         <div class="profile-img">
-          <a href="/users/profile"> <img src="{{user.imgPath}}" class="circle"> </a>
+          <img src="{{user.imgPath}}" class="circle">
+        </div>
+        <div class="logout-profile-settings-box">
+          <div class="profile-setting">
+            <a href="/users/profile"><button class="profile-btn waves-effect waves-light btn">Settings</button></a>
+          </div>
+          <div class="logout">
+            <a href="/logout"><button class="profile-btn waves-effect waves-light btn">Logout</button></a>
+          </div>
         </div>
       </div>
       <div class="welcome-msg">
-        <h4>{{user.username}}</h4>
+        <h4>welcome {{user.username}}</h4>
       </div>
     </div>
   </div>

@@ -1,25 +1,30 @@
-<form action="/signup" method="POST" id="form">
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="JonSnow@got.com" value={{#if email}} "{{email}}" {{/if}}>
+<div class="auth-container">
+  {{!-- <h3 class="app-name-auth">scriptbook</h3> --}}
+  <div class="wrap">
+    <h3 class="auth-headline">scriptbook</h3>
+    <form action="/signup" method="POST" class="auth-form auth-form-sign-up" id="form">
+      <input id="email" type="email" name="email" placeholder="e-mail" value={{#if email}} "{{email}}" {{/if}}>
+      <input id="username" type="text" name="username" placeholder="username" value={{#if username}} "{{username}}"
+        {{/if}}>
+      <input id="password" type="password" name="password" placeholder="password" value={{#if password}} "{{password}}"
+        {{/if}}>
 
-  <br><br>
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow" value={{#if username}} "{{username}}" {{/if}}>
-  <br><br>
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password" value={{#if password}} "{{password}}"
-    {{/if}}>
-  <br><br>
-  <label for="password2">Confirm password</label>
-  <input id="password2" type="password" name="password2" placeholder="Confirm password"
-    value={{#if password2}} "{{password2}}" {{/if}}>
-  {{#if message}}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <button>Create account</button>
-  <p class="account-message">
-    Already have an account?
-    <a href="/login">Login</a>
-  </p>
-  <p><a href='/'>Back home</a></p>
-</form>
+      <input id="password2" type="password" name="password2" placeholder="confirm password"
+        value={{#if password2}} "{{password2}}" {{/if}}>
+      {{#if message}}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
+      <button class="btn auth-submit">Create account</button>
+      <p class="account-message">
+        Already have an account?
+        <a href="/login">Login</a>
+      </p>
+      <a class="back-home" href='/'>Back home</a>
+    </form>
+  </div>
+</div>
+
+
+
+
+
