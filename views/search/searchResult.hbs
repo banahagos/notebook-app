@@ -6,7 +6,7 @@
 
 
 <div class="search-box">
-  <form action="/tags" method="GET" class="col s12 search-home">
+  <form action="/search" method="GET" class="col s12 search-home">
     <div class="row">
       <div class="inputField col s12">
         <input class="search" placeholder="Search for a tag" name="tag" type="text" class="validate">
@@ -27,6 +27,12 @@
 <div class="error-message">No note found</div>
 {{/if}} --}}
 
+{{#if emptySearch}}
+<div class="error-message">Please enter a search term</div>
+{{/if}}
+
+
+{{#if searchTerm}}
 {{#if tagSearchResult.[0].owner.public}}
 <div class="container">
   <div class="row">
@@ -38,9 +44,16 @@
   </div>
 </div>
 {{/if}}
+{{/if}}
+
 {{#if message}}
 <div class="error-message">{{message}}</div>
 {{/if}}
+
+{{#if isPrivateUser}}
+<div class="error-message">No public note found with this tag</div>
+{{/if}}
+
 
 <!--- MENUE - TO CREATE NOTES-->
 <div class="fixed-action-btn">

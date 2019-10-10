@@ -4,7 +4,7 @@ const Note = require('../models/note')
 const Tag = require('../models/tag')
 
 
-
+// GET search result
 router.get('/', async (req, res, next) => {
   try {
     let regex = new RegExp(req.query.tag, 'i');
@@ -13,12 +13,23 @@ router.get('/', async (req, res, next) => {
       .populate('tags')
       .populate('owner')
       .exec();
-    // res.send(tag)
-    res.render('tags/searchResult', { user: req.user, tagSearchResult: tagSearchResult, searchTerm: req.query.tag })
+    
+      let isPrivateUser = () => {
+        if(!tagSearchResult[0].owner.public && tagSearchResult && req.query.tag){
+          return true
+        }
+      } 
+
+      let emptySearch = () => {
+        if(!req.query.tag){
+          return true
+        }
+      }
+    res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, searchTerm: req.query.tag, isPrivateUser, emptySearch })
   }
   catch (err) {
     console.log('something went wrong with searching a tag')
-    res.render('tags/searchResult', { message: "No note found with this tag", user: req.user })
+    res.render('search/searchResult', { message: "No note found with this tag", user: req.user })
   }
 })
 

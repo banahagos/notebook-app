@@ -1,4 +1,4 @@
-<div class="logged-in-img">
+<div class="logged-in-img logged-in-img-user-page">
   <a href="/home">
     <img class="non-home-progile-img" src={{user.imgPath}}>
   </a>
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="welcome-msg">
-        <h4>{{owner.username}}</h4>
+        <h4>{{owner.username}}'s scriptbook</h4>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
 
 <!--Search --->
 <div class="search-box">
-  <form action="/tags" method="GET" class="col s12 search-home">
+  <form action="/search" method="GET" class="col s12 search-home">
     <div class="row">
       <div class="inputField col s12">
         <input class="search" placeholder="Search for a tag" name="tag" type="text" class="validate">

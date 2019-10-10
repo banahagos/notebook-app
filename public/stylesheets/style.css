@@ -16,6 +16,7 @@ a {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  margin: 20px;
 }
 
 .logout-btn{
@@ -31,11 +32,15 @@ a {
 .logged-in-img{
   display: flex;
   justify-content: flex-end;
-  padding: 20px 20px 0px 0px
+  padding: 20px 20px 0px 0px;
+}
+
+.logged-in-img-user-page{
+  background-color: teal;
 }
 
 /* HOME - UNLOGGED */
-.caption h4{
+.caption h5{
   color: #7F8C8D;
   font-family: 'Open Sans Condensed', sans-serif;
 }
@@ -44,10 +49,36 @@ a {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 30px;
+  /* padding-top: 10px; */
   color: #7F8C8D;
   font-family: 'Open Sans Condensed', sans-serif;
   background-color: #38477C;
+}
+
+.linkedin{
+  float: left;
+  line-height: 1em;
+  list-style: none outside none;
+  /* margin: 0; */
+  position: relative;
+  z-index: 101;
+  margin-left: 30px;
+  margin-top: 10px;
+  width: 15px;
+  height: 15px;
+}
+
+.github{
+  float: left;
+  line-height: 1em;
+  list-style: none outside none;
+  /* margin: 0; */
+  position: relative;
+  z-index: 101;
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 15px;
+  height: 15px;
 }
 
 .app-name{
@@ -59,14 +90,11 @@ a {
     z-index: 101;
 }
 
+
 .slider .indicators .indicator-item.active {
   background-color: #26A59A
 
 }
-
-/* .slides{
-  background-color: #38477C;
-} */
 
 .auth-home{
   float: right;
@@ -76,6 +104,7 @@ a {
     position: relative;
     z-index: 101;
     padding-right: 20px;
+    margin-top: 10px;
 }
 
 .auth-home .home-auth-signup {
@@ -94,7 +123,7 @@ a {
 /* HEADER - HOME-LOGGED */
 .header{
   width: 100%;
-  height: 250px;
+  height: 200px;
   background: teal;
   /* background-color: #2b5876 ; */
   display: flex;
@@ -113,8 +142,8 @@ a {
 
 .circle {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .settings {
@@ -187,11 +216,16 @@ input[placeholder="Search for a tag"]{
   display: flex;
 }
 
-.time{
+/* .time{
   justify-self: flex-end;
   height: 5px;
-}
+} */
 
+.time{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+}
 .card-title{
   background-color: teal ;
   height: 10px;
@@ -199,10 +233,15 @@ input[placeholder="Search for a tag"]{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 10px;
+  
 }
 
 .card-title span{
+  font-size:22px;
+  color: 	white;
+}
+
+.card-title a{
   font-size:18px;
   color: 	white;
 }
@@ -240,6 +279,7 @@ input[placeholder="Search for a tag"]{
   /* linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px), */
   linear-gradient(#eee .1em, transparent .1em);
   background-size: 100% 1.2em;
+  height: 100vh;
 }
 
 .all-tags{
@@ -285,6 +325,11 @@ input[placeholder="Search for a tag"]{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.text-detect-img{
+  display: flex;
+  justify-content: center;
 }
 
 /* PROFILE */
@@ -383,7 +428,7 @@ input[type=text], input[type=password], input[type=email]{
 }
 
 
-.auth-submit{
+.auth-submit {
   width: 100%;
   margin-top: 20px;
   background-color: #38477C;

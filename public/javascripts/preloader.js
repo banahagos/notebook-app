@@ -1,4 +1,4 @@
-// Preloader for text detection 
+// Preloader for text detection of image 
 document.addEventListener('DOMContentLoaded', function (e) {
   const preloader = document.querySelector('.progress')
   const submitBtn = document.querySelector('.submit-upload')

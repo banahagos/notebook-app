@@ -16,6 +16,7 @@ router.get('/profile', async (req, res, next) => {
   res.render('user/profile', { user: user })
 })
 
+//  POST delete account
 router.post('/profile/:id/delete', async (req, res, next) => {
   await Note.deleteMany({ owner: req.user._id })
   await User.deleteOne({ _id: req.user._id })

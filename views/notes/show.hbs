@@ -7,7 +7,7 @@
 
 <!--Search --->
 <div class="search-box">
-  <form action="/tags" method="GET" class="col s12 search-home">
+  <form action="/search" method="GET" class="col s12 search-home">
     <div class="row">
       <div class="inputField col s12">
         <input class="search" placeholder="Search for a tag" name="tag" type="text" class="validate">
@@ -28,9 +28,9 @@
       <div class="card">
         {{#if note.title}}
         <div class="card-content card-title">
-          <span class="card-title">{{note.title}}</span>
+          <span>{{note.title}}</span>
           {{#if owner}}
-          <a href="/notes/{{note._id}}/edit" class="btn-floating halfway-fab waves-effect waves-light teal"><i
+          <a href="/notes/{{note._id}}/edit" class="btn-floating halfway-fab waves-effect waves-light left teal"><i
               class="material-icons">edit</i></a>
           {{/if}}
         </div>
@@ -70,9 +70,9 @@
             </a>
           </div>
         </div>
-        <div class="card-action">
-          <div class="time">{{note.updated_at_iso}}</div>
-        </div>
+        {{!-- <div class="card-action"> --}}
+          <div class="time card-content">{{note.updated_at_iso}}</div>
+        {{!-- </div> --}}
       </div>
     </div>
   </div>

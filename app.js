@@ -72,13 +72,13 @@ const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const authRouter = require('./routes/auth-routes')
 const notesRouter = require('./routes/notes')
-const tagsRouter = require('./routes/tags')
+const tagsRouter = require('./routes/search')
 
 app.use('/', indexRouter)
 app.use('/', authRouter)
 app.use('/users', ensureLogin.ensureLoggedIn(), usersRouter)
 app.use('/notes', ensureLogin.ensureLoggedIn(), notesRouter)
-app.use('/tags', ensureLogin.ensureLoggedIn(), tagsRouter)
+app.use('/search', ensureLogin.ensureLoggedIn(), tagsRouter)
 
 
 // catch 404 and forward to error handler
