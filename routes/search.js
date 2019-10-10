@@ -25,7 +25,14 @@ router.get('/', async (req, res, next) => {
           return true
         }
       }
-    res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, searchTerm: req.query.tag, isPrivateUser, emptySearch })
+
+      console.log("tagFound", tagSearchResult[0].owner.public)
+      let isPublicUser = () => {
+        if(tagSearchResult[0].owner.public && req.query.tag){
+          return true
+        }
+      }
+    res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, isPublicUser, isPrivateUser, emptySearch })
   }
   catch (err) {
     console.log('something went wrong with searching a tag')

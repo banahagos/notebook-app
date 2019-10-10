@@ -21,19 +21,13 @@
 </div>
 
 
-{{!-- {{#if tagSearchResult.[0].owner.public}}
-<h5 class="headline">Search results for <span class="search-term">{{searchTerm}}</span></h5>
-{{else}}
-<div class="error-message">No note found</div>
-{{/if}} --}}
 
 {{#if emptySearch}}
 <div class="error-message">Please enter a search term</div>
 {{/if}}
 
 
-{{#if searchTerm}}
-{{#if tagSearchResult.[0].owner.public}}
+{{#if isPublicUser}}
 <div class="container">
   <div class="row">
     {{#each tagSearchResult}}
@@ -43,7 +37,6 @@
     {{/each}}
   </div>
 </div>
-{{/if}}
 {{/if}}
 
 {{#if message}}
