@@ -26,7 +26,6 @@ router.get('/', async (req, res, next) => {
         }
       }
 
-      console.log("tagFound", tagSearchResult[0].owner.public)
       let isPublicUser = () => {
         if(tagSearchResult[0].owner.public && req.query.tag){
           return true

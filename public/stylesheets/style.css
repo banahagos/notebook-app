@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
 
+
+html, body {
+  padding: 0px;
+  margin: 0px
+}
 body {
   /* padding: 50px; */
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
@@ -49,10 +54,11 @@ a {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  /* padding-top: 10px; */
+  padding-top: 5px;
   color: #7F8C8D;
   font-family: 'Open Sans Condensed', sans-serif;
   background-color: #38477C;
+  /* padding-left: 25px; */
 }
 
 .linkedin{
@@ -103,22 +109,22 @@ a {
     /* margin: 0; */
     position: relative;
     z-index: 101;
-    padding-right: 20px;
+    padding-right: 10px;
     margin-top: 10px;
 }
 
 .auth-home .home-auth-signup {
   color: #F9A602;
-  font-size: 18px;
+  font-size: 15px;
 }
 .auth-home .home-auth-login {
   color: #26A59A;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .home-auth-login{
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 /* HEADER - HOME-LOGGED */
 .header{
@@ -384,7 +390,8 @@ select {
 .auth-container{
   display: flex;
   flex-direction: column; 
-  height: 100vh;
+  min-height: -webkit-fill-available;
+  /* height: 100vh; */
   background-color: #F9A602
  
 }

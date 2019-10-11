@@ -33,7 +33,6 @@ router.get('/home', ensureLogin.ensureLoggedIn(), async (req, res, next) => {
       n.updated_at_iso = n.updated_at.toISOString()
     })
 
-
     res.render('index/home-logged', { user: req.user, notesList: notesList })
   }
   catch (err) {
