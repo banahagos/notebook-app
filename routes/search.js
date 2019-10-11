@@ -15,7 +15,10 @@ router.get('/', async (req, res, next) => {
       .populate('owner')
       .exec();
 
-      
+    if(tagSearchResult.length === 0){
+      res.render('search/searchResult', {message: "No tag found with this tag"})
+    }
+
     let isPrivateUser = () => {
       if (tagSearchResult && trimmedQuery.length > 0) {
         return !tagSearchResult[0].owner.public
@@ -43,7 +46,7 @@ router.get('/', async (req, res, next) => {
       n.created_at_iso = n.created_at.toISOString()
     })
   }
-
+console.log('tagSearchResult', tagSearchResult.length)
     res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, isPrivateUser, emptySearch, isPublicUser })
   }
   catch (err) {
