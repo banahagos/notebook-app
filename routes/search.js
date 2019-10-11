@@ -12,27 +12,27 @@ router.get('/', async (req, res, next) => {
     let tag = await Tag.findOne({ name: regex })
     let tagSearchResult = await Note.find({ tags: tag._id })
       .populate('tags')
-      .populate('owner')
-      .exec();
+      // .populate('owner')
+      // .exec();
 
-      console.log("tag", tag)
-    let isPrivateUser = () => {
-      if (tagSearchResult && trimmedQuery.length > 0) {
-        return !tagSearchResult[0].owner.public
-      }
-    }
+      
+    // let isPrivateUser = () => {
+    //   if (tagSearchResult && trimmedQuery.length > 0) {
+    //     return !tagSearchResult[0].owner.public
+    //   }
+    // }
 
-    let emptySearch = () => {
-      if (trimmedQuery.length === 0) {
-        return true
-      }
-    }
+    // let emptySearch = () => {
+    //   if (trimmedQuery.length === 0) {
+    //     return true
+    //   }
+    // }
 
-    let isPublicUser = () => {
-      if (tagSearchResult && trimmedQuery.length > 0) {
-        return tagSearchResult[0].owner.public
-      }
-    }
+    // let isPublicUser = () => {
+    //   if (tagSearchResult && trimmedQuery.length > 0) {
+    //     return tagSearchResult[0].owner.public
+    //   }
+    // }
 
     if(tagSearchResult){
     tagSearchResult.forEach(n => {
@@ -44,9 +44,7 @@ router.get('/', async (req, res, next) => {
     })
   }
 
-  console.log("tag", tag)
-
-    res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, isPublicUser, isPrivateUser, emptySearch })
+    res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult })
   }
   catch (err) {
     console.log('something went wrong with searching a tag')
