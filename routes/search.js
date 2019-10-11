@@ -15,6 +15,7 @@ router.get('/', async (req, res, next) => {
       .populate('owner')
       .exec();
 
+      console.log("tag", tag)
     let isPrivateUser = () => {
       if (tagSearchResult && trimmedQuery.length > 0) {
         return !tagSearchResult[0].owner.public

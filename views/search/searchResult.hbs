@@ -21,6 +21,9 @@
 </div>
 
 
+{{#if message}}
+<div class="error-message">{{message}}</div>
+{{/if}}
 
 {{#if emptySearch}}
 <div class="error-message">Please enter a search term</div>
@@ -39,9 +42,7 @@
 </div>
 {{/if}}
 
-{{#if message}}
-<div class="error-message">{{message}}</div>
-{{/if}}
+
 
 {{#if isPrivateUser}}
 <div class="error-message">No public note found with this tag</div>
