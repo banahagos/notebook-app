@@ -44,6 +44,8 @@ router.get('/', async (req, res, next) => {
     })
   }
 
+  console.log("tag", tag)
+
     res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, isPublicUser, isPrivateUser, emptySearch })
   }
   catch (err) {
