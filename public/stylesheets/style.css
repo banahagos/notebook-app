@@ -193,6 +193,7 @@ input[placeholder="Search for a tag"]{
 
 .time{
   font-size: 12px;
+  padding-left: 5px;
 }
 .tabs{
   display: flex;
@@ -243,13 +244,18 @@ input[placeholder="Search for a tag"]{
 }
 
 .card-title span{
-  font-size:22px;
+  font-size:15px;
   color: 	white;
 }
 
 .card-title a{
-  font-size:18px;
+  font-size:15px;
   color: 	white;
+}
+
+.card-title p {
+  font-size:15px;
+
 }
 
 .note-edit-delete-functions{
@@ -277,6 +283,7 @@ input[placeholder="Search for a tag"]{
 
 .card-action{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .paper {
@@ -331,6 +338,10 @@ input[placeholder="Search for a tag"]{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.detail-user-img{
+  justify-self: flex-start
 }
 
 .text-detect-img{
@@ -492,6 +503,18 @@ input[type=text], input[type=password], input[type=email]{
 
 }
 
+/* SEARCH RESULT PAGE */
+.dates{
+  justify-content: space-between;
+}
+
+.last-update{
+  display: flex;
+}
+
+.created {
+  display: flex;
+}
 
 /* START temporary stylin 
 #form {

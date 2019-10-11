@@ -8,6 +8,8 @@ let dataObjt = allTags.map(t => {
   data[t.innerHTML] = null
 })
 
+console.log("data",data)
+
 /* Start - Materialize documentation  */
 
 // Initialize the chip/tag

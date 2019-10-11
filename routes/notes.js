@@ -192,8 +192,11 @@ router.get('/:id', async (req, res, next) => {
       .exec();
 
     let owner = note.owner.equals(req.user._id)
-    note.updated_at_iso = note.updated_at.toISOString()
-    res.render('notes/show', { note: note, user: req.user, owner })
+    
+  
+    let tags = await Tag.find({})
+
+    res.render('notes/show', { note: note, user: req.user, owner, tags: tags })
   }
   catch (err) {
     console.log('something went wrong with showing the details page')

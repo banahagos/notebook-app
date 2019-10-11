@@ -12,5 +12,26 @@
     {{/each}}
   </div>
   {{/if}}
+  <div class="card-action">
+    <div class="user-info">
+      <p class="published-by">Published by:</p>
+      <a href="/users/{{owner.username}}">
+        <div class="chip">
+          <img src={{owner.imgPath}} alt="profile image">
+          <strong>{{owner.username}}</strong>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="card-action dates">
+    <div class="last-update">
+      <span>Last Update: </span>
+      <div class="time">{{this.updated_at_iso}}</div>
+    </div>
+    <div class="created">
+      <span>Created: </span>
+      <div class="time">{{this.created_at_iso}}</div>
+    </div>
+  </div>
 </div>
 {{/if}}

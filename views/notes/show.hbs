@@ -1,81 +1,62 @@
-<!--Profile --->
-<div class="logged-in-img">
-  <a href="/home">
-    <img class="non-home-progile-img" src={{note.owner.imgPath}}>
-  </a>
-</div>
-
-<!--Search --->
-<div class="search-box">
-  <form action="/search" method="GET" class="col s12 search-home">
-    <div class="row">
-      <div class="inputField col s12">
-        <input class="search" placeholder="Search for a tag" name="tag" type="text" class="validate">
-      </div>
-    </div>
-    <div class="search-button">
-      <button class="btn search-button waves-effect waves-light" type="submit">Search
-        <i class="material-icons right">send</i>
-      </button>
-    </div>
-  </form>
-</div>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col s12 16 card-display">
-      <div class="card">
-        {{#if note.title}}
-        <div class="card-content card-title">
-          <span>{{note.title}}</span>
-          {{#if owner}}
-          <a href="/notes/{{note._id}}/edit" class="btn-floating halfway-fab waves-effect waves-light left teal"><i
-              class="material-icons">edit</i></a>
-          {{/if}}
-        </div>
-        {{/if}}
-        {{#if note.text}}
-        <div class="card-content">
-          <p>{{note.text}}</p>
-        </div>
-        {{/if}}
-        {{#if note.tags}}
-        <div class="card-action">
-          {{#each note.tags}}
-          <div class="chip click-tag">{{this.name}}</div>
-          {{/each}}
-        </div>
-        {{/if}}
-        {{!-- {{#if owner}}
-        <div class="card-action card-buttons ">
-          <form action="/notes/{{note._id}}/delete" method="POST" class="delete-form">
-            <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
-          </form>
-          <div>
-            <a href="/notes/{{note._id}}/edit" class="btn-floating teal">
-              <i class="material-icons">edit</i>
-            </a>
-          </div>
-          {{/if}} --}}
-        {{!-- </div> --}}
-        <div class="card-action note-info">
-          <div class="user-info">
-            <p class="published-by">Published by:</p>
-            <a href="/users/{{note.owner.username}}">
-              <div class="chip">
-                <img src={{note.owner.imgPath}} alt="profile image">
-                <strong>{{note.owner.username}}</strong>
-              </div>
-            </a>
-          </div>
-        </div>
-        {{!-- <div class="card-action"> --}}
-          <div class="time card-content">{{note.updated_at_iso}}</div>
-        {{!-- </div> --}}
-      </div>
+
+<div class="paper">
+  <div class="header-edit">
+    {{#if owner}}
+    <form action="/notes/{{note._id}}/delete" method="POST" class="delete-form">
+      <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
+    </form>
+     
+    <div class="logged-in-img">
+      <a href="/home">
+        <img class="non-home-progile-img" src={{note.owner.imgPath}}>
+      </a>
     </div>
+ 
+  {{/if}}
   </div>
+ 
+  
+  
+  
+  <div class="row container-form">
+    {{#if owner}}
+    <form action="/notes/{{note._id}}" method="POST" class="col s12">
+    {{else}}
+    <form action="/notes" method="POST" class="col s12">
+    {{/if}}
+      <div class="row">
+        <div class="inputField col s12">
+          <input name="title" value="{{note.title}}" type="text" class="validate">
+          <label for="title">Title</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="inputField col s12">
+          <textarea name="text" id="textarea1" class="materialize-textarea">{{note.text}}</textarea>
+          <label for="text">Text</label>
+        </div>
+      </div>
+      <div id="inputField"></div>
+      <!-- Chips  -->
+      <div class="chips" id="chip"></div>
+      {{#if owner}}
+      <button type="submit" class="btn btn-info submit-update">Update</button>
+      {{else}}
+      <button type="submit" class="btn btn-info submit-update">Copy</button>
+      {{/if}}
+    </form>
+  </div>
+
+
+  {{#each note.tags}}
+  <p class="chip-prefill">{{name}}</p>
+  {{/each}}
+
+  {{#each tags}}
+  <p class="all-tags">{{name}}</p>
+  {{/each}}
 
   <!--- MENUE - TO CREATE NOTES-->
   <div class="fixed-action-btn">
@@ -89,3 +70,5 @@
       <li><a href="/notes/script" class="btn-floating green"><i class="material-icons">gesture</i></a></li>
     </ul>
   </div>
+</div>
+
