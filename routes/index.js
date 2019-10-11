@@ -11,6 +11,13 @@ router.get('/', (req, res, next) => {
       .populate('tags')
       .sort([['updated_at', -1]])
       .then(notesList => {
+        notesList.forEach(n => {
+          n.updated_at_iso = n.updated_at.toISOString()
+        })
+    
+        notesList.forEach(n => {
+          n.created_at_iso = n.created_at.toISOString()
+        })
         res.render('index/home-logged', { user: req.user, notesList: notesList })
       })
   }
@@ -36,6 +43,8 @@ router.get('/home', ensureLogin.ensureLoggedIn(), async (req, res, next) => {
     notesList.forEach(n => {
       n.created_at_iso = n.created_at.toISOString()
     })
+
+   
 
     res.render('index/home-logged', { user: req.user, notesList: notesList })
   }

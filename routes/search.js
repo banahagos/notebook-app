@@ -33,6 +33,7 @@ router.get('/', async (req, res, next) => {
       }
     }
 
+    if(tagSearchResult){
     tagSearchResult.forEach(n => {
       n.updated_at_iso = n.updated_at.toISOString()
     })
@@ -40,6 +41,7 @@ router.get('/', async (req, res, next) => {
     tagSearchResult.forEach(n => {
       n.created_at_iso = n.created_at.toISOString()
     })
+  }
 
     res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, isPublicUser, isPrivateUser, emptySearch })
   }
