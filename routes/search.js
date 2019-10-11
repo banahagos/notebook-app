@@ -16,8 +16,8 @@ router.get('/', async (req, res, next) => {
       .exec();
 
     let isPrivateUser = () => {
-      if (!tagSearchResult[0].owner.public && tagSearchResult && trimmedQuery.length > 0) {
-        return true
+      if (tagSearchResult && trimmedQuery.length > 0) {
+        return !tagSearchResult[0].owner.public
       }
     }
 
@@ -28,8 +28,8 @@ router.get('/', async (req, res, next) => {
     }
 
     let isPublicUser = () => {
-      if (tagSearchResult[0].owner.public && trimmedQuery.length > 0) {
-        return true
+      if (tagSearchResult && trimmedQuery.length > 0) {
+        return tagSearchResult[0].owner.public
       }
     }
 
