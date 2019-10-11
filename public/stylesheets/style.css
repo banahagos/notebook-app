@@ -509,6 +509,12 @@ input[type=text], input[type=password], input[type=email]{
   justify-content: space-between;
 }
 
+.dates-home {
+  display: flex;
+  flex-direction: column;;
+  align-items: flex-end
+}
+
 .last-update{
   display: flex;
 }
