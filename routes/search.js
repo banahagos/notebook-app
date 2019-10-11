@@ -15,9 +15,11 @@ router.get('/', async (req, res, next) => {
       .populate('owner')
       .exec();
 
+      console.log('tagSearchResult', tagSearchResult.length)
+
     if(tagSearchResult.length === 0){
       res.render('search/searchResult', { message: "No note found with this tag", user: req.user })
-    }
+    } else {
 
     let isPrivateUser = () => {
       if (tagSearchResult && trimmedQuery.length > 0) {
@@ -46,9 +48,10 @@ router.get('/', async (req, res, next) => {
       n.created_at_iso = n.created_at.toISOString()
     })
   }
-console.log('tagSearchResult', tagSearchResult.length)
+
     res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, isPrivateUser, emptySearch, isPublicUser })
   }
+}
   catch (err) {
     console.log('something went wrong with searching a tag')
     res.render('search/searchResult', { message: "No note found with this tag", user: req.user })
