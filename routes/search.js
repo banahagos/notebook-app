@@ -15,10 +15,10 @@ router.get('/', async (req, res, next) => {
       .populate('owner')
       .exec();
 
-      console.log('tagSearchResult', tagSearchResult.length)
+     
 
     if(tagSearchResult.length === 0){
-      res.render('search/searchResult', { message: "No note found with this tag", user: req.user })
+      res.render('search/searchResult', { message: "No note found", user: req.user })
     } else {
 
     let isPrivateUser = () => {
