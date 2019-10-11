@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
       .exec();
 
     if(tagSearchResult.length === 0){
-      res.render('search/searchResult', {message: "No tag found with this tag"})
+      res.render('search/searchResult', { message: "No note found with this tag", user: req.user })
     }
 
     let isPrivateUser = () => {
