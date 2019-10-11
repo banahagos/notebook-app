@@ -1,54 +1,52 @@
-
-
-
 <div class="paper">
   <div class="header-edit">
     {{#if owner}}
     <form action="/notes/{{note._id}}/delete" method="POST" class="delete-form">
       <a class="btn-floating btn-delete grey"><i class="material-icons">delete</i></a>
     </form>
-     
+
     <div class="logged-in-img">
       <a href="/home">
         <img class="non-home-progile-img" src={{note.owner.imgPath}}>
       </a>
     </div>
- 
-  {{/if}}
+    {{/if}}
   </div>
- 
-  
-  
-  
+
   <div class="row container-form">
     {{#if owner}}
     <form action="/notes/{{note._id}}" method="POST" class="col s12">
-    {{else}}
-    <form action="/notes" method="POST" class="col s12">
-    {{/if}}
-      <div class="row">
-        <div class="inputField col s12">
-          <input name="title" value="{{note.title}}" type="text" class="validate">
-          <label for="title">Title</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="inputField col s12">
-          <textarea name="text" id="textarea1" class="materialize-textarea">{{note.text}}</textarea>
-          <label for="text">Text</label>
-        </div>
-      </div>
-      <div id="inputField"></div>
-      <!-- Chips  -->
-      <div class="chips" id="chip"></div>
-      {{#if owner}}
-      <button type="submit" class="btn btn-info submit-update">Update</button>
       {{else}}
-      <button type="submit" class="btn btn-info submit-update">Copy</button>
-      {{/if}}
-    </form>
+      <form action="/notes" method="POST" class="col s12">
+        {{/if}}
+        <div class="row">
+          <div class="inputField col s12">
+            <input name="title" value="{{note.title}}" type="text" class="validate">
+            <label for="title">Title</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="inputField col s12">
+            <textarea name="text" id="textarea1" class="materialize-textarea">{{note.text}}</textarea>
+            <label for="text">Text</label>
+          </div>
+        </div>
+        <div id="inputField"></div>
+        <!-- Chips  -->
+        <div class="chips" id="chip"></div>
+        {{#if owner}}
+        <button type="submit" class="btn btn-info submit-update">Update</button>
+        {{else}}
+        <button type="submit" class="btn btn-info submit-update">Copy</button>
+        {{/if}}
+      </form>
   </div>
 
+  {{#if note.imgPath}}
+
+  <div class="text-detect-img"><img class="responsive-img" src="{{note.imgPath}}"></div>
+
+  {{/if}}
 
   {{#each note.tags}}
   <p class="chip-prefill">{{name}}</p>
@@ -71,4 +69,3 @@
     </ul>
   </div>
 </div>
-
