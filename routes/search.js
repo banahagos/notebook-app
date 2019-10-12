@@ -8,7 +8,7 @@ const Tag = require('../models/tag')
 router.get('/', async (req, res, next) => {
   try {
     let trimmedQuery = req.query.tag.trim()
-    let regex = new RegExp(trimmedQuery, 'i');
+    let regex = new RegExp(`^${trimmedQuery}$`, 'i');
     let tag = await Tag.findOne({ name: regex })
     let tagSearchResult = await Note.find({ tags: tag._id })
       .populate('tags')
@@ -16,11 +16,12 @@ router.get('/', async (req, res, next) => {
       .exec();
 
      
-
+// should execute when search field is empty or the searched tag exists in the database but is not attached to a note
     if(tagSearchResult.length === 0){
       res.render('search/searchResult', { message: "No note found", user: req.user })
     } else {
 
+// will execute when the seached tag is attached to note(s)
     let isPrivateUser = () => {
       if (tagSearchResult && trimmedQuery.length > 0) {
         return !tagSearchResult[0].owner.public
@@ -49,7 +50,7 @@ router.get('/', async (req, res, next) => {
     })
   }
 
-    res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, isPrivateUser, emptySearch, isPublicUser })
+    res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, isPrivateUser, isPublicUser, emptySearch })
   }
 }
   catch (err) {
