@@ -9,8 +9,9 @@ router.get('/', async (req, res, next) => {
   try {
     let trimmedQuery = req.query.tag.trim()
     let regex = new RegExp(`^${trimmedQuery}$`, 'i');
-    let tag = await Tag.findOne({ name: regex })
-    let tagSearchResult = await Note.find({ tags: tag._id })
+    let tags = await Tag.find({ name: regex })
+    console.log(tags)
+    let tagSearchResult = await Note.find({ tags: { $in: tags.map(e => e._id) } })
       .populate('tags')
       .populate('owner')
       .exec();
