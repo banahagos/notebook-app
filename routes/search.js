@@ -29,6 +29,7 @@ router.get('/', async (req, res, next) => {
       }
     }
 
+
     let emptySearch = () => {
       if (trimmedQuery.length === 0) {
         return true
