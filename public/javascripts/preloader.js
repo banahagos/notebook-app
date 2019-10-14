@@ -4,17 +4,21 @@ document.addEventListener('DOMContentLoaded', function (e) {
   const submitBtn = document.querySelector('.submit-upload')
   const imgBtn = document.querySelector('.btn-img')
   const errMsg = document.querySelector('.error-message')
-  imgBtn.addEventListener('click', function (e) {
-    errMsg.style.visibility = "hidden"
-  })
 
-  submitBtn.addEventListener('click', function (e) {
-    errMsg.style.visibility = "hidden"
+  if (imgBtn) {
+    imgBtn.addEventListener('click', function (e) {
+      errMsg.style.visibility = "hidden"
+    })
+  }
 
-  })
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function (e) {
+      errMsg.style.visibility = "hidden"
+    })
 
-  submitBtn.addEventListener('click', function (e) {
-    preloader.style.visibility = "visible"
+    submitBtn.addEventListener('click', function (e) {
+      preloader.style.visibility = "visible"
 
-  })
+    })
+  }
 })

@@ -8,10 +8,6 @@ let dataObjt = allTags.map(t => {
   data[t.innerHTML] = null
 })
 
-console.log("data",data)
-
-/* Start - Materialize documentation  */
-
 // Initialize the chip/tag
 document.addEventListener('DOMContentLoaded', function () {
   let chipEl = document.getElementById('chip');
@@ -27,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
   // Get an array of chip/tag objects
-  console.log("chipElement", chipElement)
   if (chipElement) {
     chipData = chipElement.chipsData
     console.log(chipData) // check the data that's returned
@@ -44,9 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
     element.style.visibility = "hidden"
   })
 })
-
-/* End - Materialize documentation */
-
 
 // Create an hidden input field (Create & Edit page)
 let parentNode = document.getElementById("inputField")

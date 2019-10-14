@@ -16,45 +16,27 @@ router.get('/', async (req, res, next) => {
       .populate('owner')
       .exec();
 
-     
-// should execute when search field is empty or the searched tag exists in the database but is not attached to a note
-    if(tagSearchResult.length === 0){
+
+    // should execute when search field is empty or the searched tag exists in the database but is not attached to a note
+    if (tagSearchResult.length === 0) {
       res.render('search/searchResult', { message: "No note found", user: req.user })
     } else {
 
-// will execute when the seached tag is attached to note(s)
-    let isPrivateUser = () => {
-      if (tagSearchResult && trimmedQuery.length > 0) {
-        return !tagSearchResult[0].owner.public
+      // will execute when the seached tag is attached to note(s)
+
+      if (tagSearchResult) {
+        tagSearchResult.forEach(n => {
+          n.updated_at_iso = n.updated_at.toISOString()
+        })
+
+        tagSearchResult.forEach(n => {
+          n.created_at_iso = n.created_at.toISOString()
+        })
       }
+
+      res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult })
     }
-
-
-    let emptySearch = () => {
-      if (trimmedQuery.length === 0) {
-        return true
-      }
-    }
-
-    let isPublicUser = () => {
-      if (tagSearchResult && trimmedQuery.length > 0) {
-        return tagSearchResult[0].owner.public
-      }
-    }
-
-    if(tagSearchResult){
-    tagSearchResult.forEach(n => {
-      n.updated_at_iso = n.updated_at.toISOString()
-    })
-
-    tagSearchResult.forEach(n => {
-      n.created_at_iso = n.created_at.toISOString()
-    })
   }
-
-    res.render('search/searchResult', { user: req.user, tagSearchResult: tagSearchResult, isPrivateUser, isPublicUser, emptySearch })
-  }
-}
   catch (err) {
     console.log('something went wrong with searching a tag')
     res.render('search/searchResult', { message: "No note found with this tag", user: req.user })

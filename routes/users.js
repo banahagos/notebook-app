@@ -76,20 +76,20 @@ router.get('/:username', async (req, res, next) => {
   try {
     req.params.username.toLocaleLowerCase()
     let owner = await User.findOne({ username: req.params.username })
-    if (owner.public) {
-      let notesList = await Note.find({ owner: owner._id })
-        .populate('tags')
-        .sort([['updated_at', -1]])
+    let notesList = await Note.find({ owner: owner._id })
+      .populate('tags')
+      .sort([['updated_at', -1]])
 
-      notesList.forEach(n => {
-        n.updated_at_iso = n.updated_at.toISOString()
-      })
+    notesList.forEach(n => {
+      n.updated_at_iso = n.updated_at.toISOString()
+    })
 
-      res.render('user/userpage', { notesList: notesList, owner: owner, user: req.user })
-    }
-    else {
-      res.render('user/userpage', { message: "This page is private", owner: owner, user: req.user })
-    }
+    notesList.forEach(n => {
+      n.created_at_iso = n.created_at.toISOString()
+    })
+
+    res.render('user/userpage', { notesList: notesList, owner: owner, user: req.user })
+
   }
   catch (err) {
     console.log("something went wrong with getting the userpage", err)
