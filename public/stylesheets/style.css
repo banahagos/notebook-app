@@ -436,7 +436,7 @@ select {
 input[type=text], input[type=password], input[type=email]{
   background:  rgba(0,0,0,0.5);
   color: #38477C;
-  background-color: #F9A602;
+  /*background-color: #F9A602;*/
 }
 
 .auth-form-login
