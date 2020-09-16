@@ -441,7 +441,7 @@ input[type=text], input[type=password], input[type=email]{
 
 .auth-form-login
 input[type=password], input[type=email]{
-  background:  rgba(0,0,0,0.5);
+  /*background:  rgba(0,0,0,0.5);*/
   color: #38477C;
   /*background-color: #26A59A*/
 }
